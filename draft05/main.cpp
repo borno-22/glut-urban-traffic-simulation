@@ -175,7 +175,7 @@ void water()
     //
     glColor3f(0.60f, 0.85f, 0.95f);
     glBegin(GL_QUADS);
-    glVertex2f(-.15,.45);
+    glVertex2f(-.1,.45);
     glVertex2f(-1.0,.45);
     glVertex2f(-1.0,-1.0);
     glVertex2f(-.45,-1.0);
@@ -335,45 +335,461 @@ void ship()
     glEnd();
 }
 
+void ornob_house1()
+{
+    // body1 (Front Wall)
+    glColor3f(0.2f, 0.6f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.64f, 0.2f);
+    glVertex2f(-0.64f, 0.12f);
+    glVertex2f(-0.59f, 0.12f);
+    glVertex2f(-0.59f, 0.2f);
+    glEnd();
 
+    // body2 (Side Wall)
+    glColor3f(0.9f, 0.1f, 1.0f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.59f, 0.2f);
+    glVertex2f(-0.59f, 0.12f);
+    glVertex2f(-0.55f, 0.155f);
+    glVertex2f(-0.55f, 0.23f);
+    glEnd();
+
+    // roof1
+    glColor3f(0.2f, 0.6f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.575f, 0.28f);
+    glVertex2f(-0.62f, 0.26f);
+    glVertex2f(-0.585f, 0.2f);
+    glVertex2f(-0.54f, 0.23f);
+    glEnd();
+
+    // roof2
+    glColor3f(0.2f, 0.2f, 0.9f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.62f, 0.26f);
+    glVertex2f(-0.65f, 0.2f);
+    glVertex2f(-0.585f, 0.2f);
+    glEnd();
+
+    // --- FRONT WALL ELEMENTS ---
+
+    // Front Window 1 (Left)
+    glColor3f(0.9f, 0.9f, 0.4f); // Warm yellow
+    glBegin(GL_QUADS);
+    glVertex2f(-0.633f, 0.175f);
+    glVertex2f(-0.633f, 0.148f);
+    glVertex2f(-0.619f, 0.148f);
+    glVertex2f(-0.619f, 0.175f);
+    glEnd();
+
+    // Front Window 2 (Right)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.61f, 0.175f);
+    glVertex2f(-0.61f, 0.148f);
+    glVertex2f(-0.596f, 0.148f);
+    glVertex2f(-0.596f, 0.175f);
+    glEnd();
+
+    // --- SIDE WALL ELEMENTS ---
+
+    // Side Window 1 (Left side of the angled wall)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.585f, 0.179f);
+    glVertex2f(-0.585f, 0.152f);
+    glVertex2f(-0.578f, 0.158f);
+    glVertex2f(-0.578f, 0.185f);
+    glEnd();
+
+    // Side Door (Centered on the angled wall)
+    glColor3f(0.4f, 0.2f, 0.0f); // Brown
+    glBegin(GL_QUADS);
+    glVertex2f(-0.575f, 0.185f);
+    glVertex2f(-0.575f, 0.135f); // Touches angled ground line
+    glVertex2f(-0.565f, 0.143f); // Touches angled ground line
+    glVertex2f(-0.565f, 0.1925f);
+    glEnd();
+
+    // Side Window 2 (Right side of the angled wall)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.562f, 0.195f);
+    glVertex2f(-0.562f, 0.168f);
+    glVertex2f(-0.554f, 0.176f);
+    glVertex2f(-0.554f, 0.202f);
+    glEnd();
+}
+
+void ornob_house2()
+{
+    // body1 (Front Wall) - Cream/Beige
+    glColor3f(0.9f, 0.85f, 0.75f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7915f, 0.112f);
+    glVertex2f(-0.7915f, 0.024f);
+    glVertex2f(-0.7365f, 0.024f);
+    glVertex2f(-0.7365f, 0.112f);
+    glEnd();
+
+    // body2 (Side Wall) - Darker Tan for shadow/depth
+    glColor3f(0.8f, 0.7f, 0.6f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7365f, 0.112f);
+    glVertex2f(-0.7365f, 0.024f);
+    glVertex2f(-0.6925f, 0.0625f);
+    glVertex2f(-0.6925f, 0.145f);
+    glEnd();
+
+    // roof1 - Terracotta Red
+    glColor3f(0.8f, 0.3f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.720f, 0.200f);
+    glVertex2f(-0.7695f, 0.178f);
+    glVertex2f(-0.731f, 0.112f);
+    glVertex2f(-0.6815f, 0.145f);
+    glEnd();
+
+    // roof2 - Darker Terracotta Red
+    glColor3f(0.6f, 0.2f, 0.1f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.7695f, 0.178f);
+    glVertex2f(-0.8025f, 0.112f);
+    glVertex2f(-0.731f, 0.112f);
+    glEnd();
+
+    // --- FRONT WALL ELEMENTS ---
+
+    // Front Window 1 (Left) - Light Blue Glass
+    glColor3f(0.5f, 0.8f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7838f, 0.0845f);
+    glVertex2f(-0.7838f, 0.0548f);
+    glVertex2f(-0.7684f, 0.0548f);
+    glVertex2f(-0.7684f, 0.0845f);
+    glEnd();
+
+    // Front Window 2 (Right) - Light Blue Glass
+    glColor3f(0.5f, 0.8f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7585f, 0.0845f);
+    glVertex2f(-0.7585f, 0.0548f);
+    glVertex2f(-0.7431f, 0.0548f);
+    glVertex2f(-0.7431f, 0.0845f);
+    glEnd();
+
+    // --- SIDE WALL ELEMENTS ---
+
+    // Side Window 1 (Left side of the angled wall) - Light Blue Glass
+    glColor3f(0.5f, 0.8f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.731f, 0.0889f);
+    glVertex2f(-0.731f, 0.0592f);
+    glVertex2f(-0.7233f, 0.0658f);
+    glVertex2f(-0.7233f, 0.0955f);
+    glEnd();
+
+    // Side Door (Centered on the angled wall) - Dark Wood
+    glColor3f(0.3f, 0.15f, 0.05f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.720f, 0.0955f);
+    glVertex2f(-0.720f, 0.0405f);
+    glVertex2f(-0.709f, 0.0493f);
+    glVertex2f(-0.709f, 0.1038f);
+    glEnd();
+
+    // Side Window 2 (Right side of the angled wall) - Light Blue Glass
+    glColor3f(0.5f, 0.8f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7057f, 0.1065f);
+    glVertex2f(-0.7057f, 0.0768f);
+    glVertex2f(-0.6969f, 0.0856f);
+    glVertex2f(-0.6969f, 0.1142f);
+    glEnd();
+}
+
+void ornob_house3()
+{
+    // body1 (Front Wall)
+    glColor3f(0.2f, 0.6f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.935f, 0.113f);
+    glVertex2f(-0.935f, 0.025f);
+    glVertex2f(-0.880f, 0.025f);
+    glVertex2f(-0.880f, 0.113f);
+    glEnd();
+
+    // body2 (Side Wall)
+    glColor3f(0.9f, 0.1f, 1.0f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.880f, 0.113f);
+    glVertex2f(-0.880f, 0.025f);
+    glVertex2f(-0.836f, 0.0635f);
+    glVertex2f(-0.836f, 0.146f);
+    glEnd();
+
+    // roof1
+    glColor3f(0.2f, 0.6f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8635f, 0.201f); // New anchor point (scaled)
+    glVertex2f(-0.913f, 0.179f);
+    glVertex2f(-0.8745f, 0.113f);
+    glVertex2f(-0.825f, 0.146f);
+    glEnd();
+
+    // roof2
+    glColor3f(0.2f, 0.2f, 0.9f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.913f, 0.179f);
+    glVertex2f(-0.946f, 0.113f);
+    glVertex2f(-0.8745f, 0.113f);
+    glEnd();
+
+    // --- FRONT WALL ELEMENTS ---
+
+    // Front Window 1 (Left)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.9273f, 0.0855f);
+    glVertex2f(-0.9273f, 0.0558f);
+    glVertex2f(-0.9119f, 0.0558f);
+    glVertex2f(-0.9119f, 0.0855f);
+    glEnd();
+
+    // Front Window 2 (Right)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.902f, 0.0855f);
+    glVertex2f(-0.902f, 0.0558f);
+    glVertex2f(-0.8866f, 0.0558f);
+    glVertex2f(-0.8866f, 0.0855f);
+    glEnd();
+
+    // --- SIDE WALL ELEMENTS ---
+
+    // Side Window 1 (Left side of the angled wall)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8745f, 0.0899f);
+    glVertex2f(-0.8745f, 0.0602f);
+    glVertex2f(-0.8668f, 0.0668f);
+    glVertex2f(-0.8668f, 0.0965f);
+    glEnd();
+
+    // Side Door (Centered)
+    glColor3f(0.4f, 0.2f, 0.0f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8635f, 0.0965f);
+    glVertex2f(-0.8635f, 0.0415f);
+    glVertex2f(-0.8525f, 0.0503f);
+    glVertex2f(-0.8525f, 0.1048f);
+    glEnd();
+
+    // Side Window 2 (Right side)
+    glColor3f(0.9f, 0.9f, 0.4f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8492f, 0.1075f);
+    glVertex2f(-0.8492f, 0.0778f);
+    glVertex2f(-0.8404f, 0.0866f);
+    glVertex2f(-0.8404f, 0.1152f);
+    glEnd();
+}
+
+void ornob_house4()
+{
+    // body1 (Front Wall) - Sage Green
+    glColor3f(0.5f, 0.7f, 0.5f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7235f, 0.248f);
+    glVertex2f(-0.7235f, 0.176f);
+    glVertex2f(-0.6785f, 0.176f);
+    glVertex2f(-0.6785f, 0.248f);
+    glEnd();
+
+    // body2 (Side Wall) - Forest Green
+    glColor3f(0.3f, 0.5f, 0.3f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.6785f, 0.248f);
+    glVertex2f(-0.6785f, 0.176f);
+    glVertex2f(-0.6425f, 0.2075f);
+    glVertex2f(-0.6425f, 0.275f);
+    glEnd();
+
+    // roof1 - Charcoal Grey
+    glColor3f(0.3f, 0.3f, 0.3f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.665f, 0.320f);
+    glVertex2f(-0.7055f, 0.302f);
+    glVertex2f(-0.674f, 0.248f);
+    glVertex2f(-0.6335f, 0.275f);
+    glEnd();
+
+    // roof2 - Dark Charcoal
+    glColor3f(0.2f, 0.2f, 0.2f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.7055f, 0.302f);
+    glVertex2f(-0.7325f, 0.248f);
+    glVertex2f(-0.674f, 0.248f);
+    glEnd();
+
+    // --- FRONT WALL ELEMENTS ---
+
+    // Front Window 1 (Left) - Warm Orange Glow
+    glColor3f(1.0f, 0.7f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7172f, 0.2255f);
+    glVertex2f(-0.7172f, 0.2012f);
+    glVertex2f(-0.7046f, 0.2012f);
+    glVertex2f(-0.7046f, 0.2255f);
+    glEnd();
+
+    // Front Window 2 (Right) - Warm Orange Glow
+    glColor3f(1.0f, 0.7f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.6965f, 0.2255f);
+    glVertex2f(-0.6965f, 0.2012f);
+    glVertex2f(-0.6839f, 0.2012f);
+    glVertex2f(-0.6839f, 0.2255f);
+    glEnd();
+
+    // --- SIDE WALL ELEMENTS ---
+
+    // Side Window 1 (Left side of the angled wall) - Warm Orange Glow
+    glColor3f(1.0f, 0.7f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.674f, 0.2291f);
+    glVertex2f(-0.674f, 0.2048f);
+    glVertex2f(-0.6677f, 0.2102f);
+    glVertex2f(-0.6677f, 0.2345f);
+    glEnd();
+
+    // Side Door (Centered on the angled wall) - Crisp White
+    glColor3f(0.9f, 0.9f, 0.9f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.665f, 0.2345f);
+    glVertex2f(-0.665f, 0.1895f);
+    glVertex2f(-0.656f, 0.1967f);
+    glVertex2f(-0.656f, 0.24125f);
+    glEnd();
+
+    // Side Window 2 (Right side of the angled wall) - Warm Orange Glow
+    glColor3f(1.0f, 0.7f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.6533f, 0.2435f);
+    glVertex2f(-0.6533f, 0.2192f);
+    glVertex2f(-0.6461f, 0.2264f);
+    glVertex2f(-0.6461f, 0.2498f);
+    glEnd();
+}
+
+
+void ornob_mosque()
+{
+    // body1 (Main Hall Front Wall)
+    glColor3f(0.95f, 0.93f, 0.88f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8912f, 0.310f);
+    glVertex2f(-0.8912f, 0.222f);
+    glVertex2f(-0.8087f, 0.222f);
+    glVertex2f(-0.8087f, 0.310f);
+    glEnd();
+
+    // body2 (Main Hall Side Wall)
+    glColor3f(0.85f, 0.82f, 0.77f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8087f, 0.310f);
+    glVertex2f(-0.8087f, 0.222f);
+    glVertex2f(-0.7537f, 0.2536f);
+    glVertex2f(-0.7537f, 0.3416f);
+    glEnd();
+
+    // Minaret Shaft (Tall tower on the side)
+    glColor3f(0.90f, 0.87f, 0.82f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7537f, 0.4805f);
+    glVertex2f(-0.7537f, 0.2536f);
+    glVertex2f(-0.7331f, 0.2646f);
+    glVertex2f(-0.7331f, 0.4888f);
+    glEnd();
+
+    // roof1 (Flat side roof connecting to minaret)
+    glColor3f(0.75f, 0.72f, 0.67f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8087f, 0.310f);
+    glVertex2f(-0.8912f, 0.310f);
+    glVertex2f(-0.8362f, 0.3416f);
+    glVertex2f(-0.7537f, 0.3416f);
+    glEnd();
+
+    // roof2 (Reshaped into the Main Golden Dome)
+    glColor3f(1.0f, 0.84f, 0.0f); // Gold
+    glBegin(GL_POLYGON);
+    glVertex2f(-0.8912f, 0.310f);   // Left base
+    glVertex2f(-0.9118f, 0.3361f);  // Left bulge
+    glVertex2f(-0.8843f, 0.3705f);  // Curve up left
+    glVertex2f(-0.8500f, 0.398f);   // Peak (Your requested coordinate)
+    glVertex2f(-0.8156f, 0.3705f);  // Curve up right
+    glVertex2f(-0.7881f, 0.3361f);  // Right bulge
+    glVertex2f(-0.8087f, 0.310f);   // Right base
+    glEnd();
+
+    // Minaret Dome (Golden Spire)
+    glColor3f(1.0f, 0.84f, 0.0f); // Gold
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.7606f, 0.4668f); // Base Left
+    glVertex2f(-0.7427f, 0.5218f); // Peak
+    glVertex2f(-0.7262f, 0.4668f); // Base Right
+    glEnd();
+
+    // --- FRONT WALL ELEMENTS ---
+
+    // Front Grand Entrance 1 (Left) - Emerald Green
+    glColor3f(0.0f, 0.4f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8775f, 0.2811f);
+    glVertex2f(-0.8775f, 0.222f); // Touches ground
+    glVertex2f(-0.8568f, 0.222f);
+    glVertex2f(-0.8568f, 0.2811f);
+    glEnd();
+
+    // Front Grand Entrance 2 (Right) - Emerald Green
+    glColor3f(0.0f, 0.4f, 0.2f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.8431f, 0.2811f);
+    glVertex2f(-0.8431f, 0.222f);
+    glVertex2f(-0.8225f, 0.222f);
+    glVertex2f(-0.8225f, 0.2811f);
+    glEnd();
+
+    // --- SIDE WALL ELEMENTS ---
+
+    // Side Door (Preserving perspective)
+    glColor3f(0.3f, 0.15f, 0.05f); // Dark Wood
+    glBegin(GL_QUADS);
+    glVertex2f(-0.7881f, 0.2811f);
+    glVertex2f(-0.7881f, 0.233f);
+    glVertex2f(-0.7675f, 0.2454f);
+    glVertex2f(-0.7675f, 0.2935f);
+    glEnd();
+}
 void riverSide()
 {
     //
     //land
     //
-    glColor3f(0.20f, 0.0f, 0.55f);
-    glBegin(GL_TRIANGLES);
-    glVertex2f(-.695,.45);
-    glVertex2f(-1.0,.45);
-    glVertex2f(-1.0,-.26);
-    glEnd();
-
     glColor3f(0.60f, 0.90f, 0.55f);
     glBegin(GL_TRIANGLES);
-    glVertex2f(-.7,.45);
+    glVertex2f(-.22,.45);
     glVertex2f(-1.0,.45);
-    glVertex2f(-1.0,-.25);
+    glVertex2f(-1.0,-.28);
     glEnd();
 
-    //
-    //bush + tree
-    //
-    bushType1(-1.0f, .35f, .8f);
-    bushType1(-.9f, .35f, .8f);
-    bushType1(-.82f, .35f, .8f);
-    bushType1(-.84f, .35f, .8f);
-    bushType1(-.95f, .3f, .8f);
-    bushType1(-.85f, .3f, .85f);
-    bushType1(-.95f, .25f, .85f);
-    bushType1(-.95f, .15f, .85f);
-    bushType1(-.88f, .25f, .85f);
-    bushType1(-.88f, .2f, .85f);
-    bushType1(-.95f, .1f, .9f);
-    bushType1(-.93f, .1f, .85f);
-    bushType1(-1.0f, .0f, .85f);
-    treeType1(-.9f, .0f, .85f);
-    bushType1(-1.02f, -.07f, .85f);
-    treeType1(-.947f, -.1f, .9f);
+    ornob_mosque();
+   ornob_house1();
+   ornob_house3();
+   ornob_house4();
+    ornob_house2();
 
 }
 
@@ -2061,11 +2477,6 @@ void display(void)
     riverSide();
     ship();
     roadSide();
-
-
-
-
-
 
     glFlush();
 }
