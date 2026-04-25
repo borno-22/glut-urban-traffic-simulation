@@ -376,7 +376,7 @@ void roadSide(){
     bushType1(-0.17f, 0.4f, 0.33);
     bushType1(-0.175f, 0.37f, 0.36);
     bushType1(-0.18f, 0.34f, 0.38);
-        bushType2(-0.18f, 0.34f, 0.38);
+    bushType2(-0.18f, 0.34f, 0.38);
 
 
 
