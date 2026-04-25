@@ -26,13 +26,11 @@ GLfloat speed = 1.0f;
 //
 //ORNOB
 //
-float ornob_shipX = 0.0f;      // Current translation X
-float ornob_shipY = 0.0f;      // Current translation Y
-float ornob_shipScale = 1.0f;   // Starting size (100%)
-float ornob_shipAngle = 0.0f;   // Slight tilt
-bool ornob_isMoving = false;    // The Start/Stop switch
-
-
+GLfloat ornob_tx = 0.0f;
+GLfloat ornob_ty = 0.0f;
+GLfloat ornob_angle = 0.0f;  // New: for rotation
+GLfloat ornob_scale = 1.0f;
+int ornob_moveFlag  = 0; // 0 = stop, 1 = move
 
 ////////////////////////
 
@@ -1592,48 +1590,44 @@ void roadSide()
 
 }
 
+void ornob_update(int value)
+{
 
+    if (ornob_moveFlag == 1)
+    {
+        ornob_tx += 0.002f;         // X Speed
+        ornob_ty += 0.0045f;       // Y Speed (X * 1.58)
 
-void ornob_shipTimer(int value) {
-    if (ornob_isMoving) {
-        // 1. Move Diagonally
-        // We move Y slightly faster than X because the Y distance is greater
-        ornob_shipX += 0.002f;
-        ornob_shipY += 0.00316f;
-
-        // 2. Rotate slightly
-        ornob_shipAngle += 0.05f;
-
-        // 3. Scale down (getting smaller as it moves away)
-        if (ornob_shipScale > 0.4f) { // Don't let it disappear completely
-            ornob_shipScale -= 0.0015f;
+        if (ornob_scale > 0.4f)     // Don't let it shrink to zero
+        {
+            ornob_scale -= 0.002f;
         }
 
-        // 4. Reset Logic
-        // If it reaches the target area (-0.1, 0.45), reset to start
-        if (ornob_shipX >= 0.6f) {
-            ornob_shipX = 0.0f;
-            ornob_shipY = 0.0f;
-            ornob_shipScale = 1.0f;
-            ornob_shipAngle = 0.0f;
+        if (ornob_tx >= 0.6f)
+        {
+            ornob_tx = 0.0f;
+            ornob_ty = 0.0f;
+            ornob_scale = 1.0f;
         }
     }
 
     glutPostRedisplay();
-    glutTimerFunc(16, ornob_shipTimer, 0);
+    glutTimerFunc(16, ornob_update, 0);
 }
 
-
-
-void ornob_keyboardInput(unsigned char key, int x, int y) {
-    if (key == '9') {
-        ornob_isMoving = true;
+void ornob_keyboard(unsigned char key, int x, int y)
+{
+    switch(key)
+    {
+    case '9':
+        ornob_moveFlag = 1;
+        break;
+    case '0':
+        ornob_moveFlag = 0;
+        break;
     }
-    else if (key == '0') {
-        ornob_isMoving = false;
-    }
+    glutPostRedisplay();
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3329,18 +3323,14 @@ void display(void)
     //ORNOB
     water();
     riverSide();
-   // ship();
     roadSide();
 
-
     glPushMatrix();
-glTranslatef(ornob_shipX, ornob_shipY, 0.0f);
+    glTranslatef(ornob_tx, ornob_ty, 0.0f);
 
-        glRotatef(ornob_shipAngle, 0.0f, 0.0f, 1.0f);
-        glScalef(ornob_shipScale, ornob_shipScale, 1.0f);
-        ship();
+    glScalef(ornob_scale, ornob_scale, 1.0f);
+    ship();
     glPopMatrix();
-
 
     glFlush();
 }
@@ -3360,8 +3350,8 @@ int main(int argc, char** argv)
     glutTimerFunc(16, updatef, 0);
     glutTimerFunc(16, updateS, 0);
 
-    glutKeyboardFunc(ornob_keyboardInput);
-    glutTimerFunc(16, ornob_shipTimer, 0);
+    //glutKeyboardFunc(ornob_keyboard);
+    //glutTimerFunc(16, ornob_update, 0);
 
     glClearColor(0.5f,0.8f,0.5f,1.0f);
     glutMainLoop();
