@@ -1145,6 +1145,23 @@ void ornob_mosque()
 {
     glLineWidth(.5f); // Set outline thickness once at the top
 
+    //concreate
+    glColor3f(0.75f, 0.75f, 0.75f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.88, 0.28f);
+    glVertex2f(-0.94f, 0.2f);
+    glVertex2f(-0.8f, 0.2f);
+    glVertex2f(-0.7f, 0.28f);
+    glEnd();
+
+    glColor3f(0.0f, 0.0f, 0.0f); // Switch to black!
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(-0.88f, 0.28f); // Top Left
+    glVertex2f(-0.94f, 0.20f); // Bottom Left
+    glVertex2f(-0.80f, 0.20f); // Bottom Right
+    glVertex2f(-0.70f, 0.28f); // Top Right
+    glEnd();
+
     // ==========================================
     // WALLS
     // ==========================================
@@ -1522,6 +1539,228 @@ void ornob_PineTree()
     glEnd();
 }
 
+void ornob_gardenForHouse1()
+{
+    // ==========================================
+    // GRASS PATCH
+    // ==========================================
+    glColor3f(0.3f, 0.7f, 0.3f); // Fresh Grass Green
+    glBegin(GL_QUADS);
+    glVertex2f(-0.64f, 0.12f);
+    glVertex2f(-0.65f, 0.1f);
+    glVertex2f(-0.6f, 0.1f);
+    glVertex2f(-0.59f, 0.12f);
+    glEnd();
+
+    // Dark Green Outline
+    glColor3f(0.1f, 0.4f, 0.1f);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(-0.64f, 0.12f);
+    glVertex2f(-0.65f, 0.1f);
+    glVertex2f(-0.6f, 0.1f);
+    glVertex2f(-0.59f, 0.12f);
+    glEnd();
+
+    // ==========================================
+    // CARROTS
+    // ==========================================
+
+    // --- Carrot 1 (Left) ---
+    // Orange Body
+    glColor3f(1.0f, 0.5f, 0.0f); // Bright Orange
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.638f, 0.115f); // Top Left
+    glVertex2f(-0.632f, 0.115f); // Top Right
+    glVertex2f(-0.635f, 0.105f); // Bottom Point
+    glEnd();
+
+    // Green Leaves
+    glColor3f(0.0f, 0.8f, 0.0f); // Bright Green
+    glBegin(GL_LINES);
+    glVertex2f(-0.635f, 0.115f); // Base of leaves
+    glVertex2f(-0.635f, 0.125f); // Tip of leaves
+    glEnd();
+
+
+    // --- Carrot 2 (Middle) ---
+    // Slightly lower for a natural, unaligned look
+    glColor3f(1.0f, 0.5f, 0.0f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.623f, 0.110f);
+    glVertex2f(-0.617f, 0.110f);
+    glVertex2f(-0.620f, 0.100f);
+    glEnd();
+
+    glColor3f(0.0f, 0.8f, 0.0f);
+    glBegin(GL_LINES);
+    glVertex2f(-0.620f, 0.110f);
+    glVertex2f(-0.620f, 0.120f);
+    glEnd();
+
+
+    // --- Carrot 3 (Right) ---
+    glColor3f(1.0f, 0.5f, 0.0f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.608f, 0.115f);
+    glVertex2f(-0.602f, 0.115f);
+    glVertex2f(-0.605f, 0.105f);
+    glEnd();
+
+    glColor3f(0.0f, 0.8f, 0.0f);
+    glBegin(GL_LINES);
+    glVertex2f(-0.605f, 0.115f);
+    glVertex2f(-0.605f, 0.125f);
+    glEnd();
+}
+
+void ornob_gardenForHouse2()
+{
+    // ==========================================
+    // GRASS PATCH (Slanted Shape)
+    // ==========================================
+    glColor3f(0.3f, 0.7f, 0.3f); // Fresh Grass Green
+    glBegin(GL_QUADS);
+    glVertex2f(-0.79f, 0.024f);  // Top Left (Shifted Right)
+    glVertex2f(-0.80f, -0.01f);  // Bottom Left
+    glVertex2f(-0.745f, -0.01f); // Bottom Right
+    glVertex2f(-0.736f, 0.024f); // Top Right (Shifted Right)
+    glEnd();
+
+    // Dark Green Outline
+    glColor3f(0.1f, 0.4f, 0.1f);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(-0.79f, 0.024f);
+    glVertex2f(-0.80f, -0.01f);
+    glVertex2f(-0.745f, -0.01f);
+    glVertex2f(-0.736f, 0.024f);
+    glEnd();
+
+    // ==========================================
+    // CARROTS (Manual Placement)
+    // ==========================================
+
+    // --- Carrot 1 (Left side of the patch) ---
+    // Orange Body
+    glColor3f(1.0f, 0.5f, 0.0f); // Bright Orange
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.783f, 0.010f); // Top Left
+    glVertex2f(-0.777f, 0.010f); // Top Right
+    glVertex2f(-0.780f, 0.000f); // Bottom Point
+    glEnd();
+
+    // Green Leaves
+    glColor3f(0.0f, 0.8f, 0.0f); // Bright Green
+    glBegin(GL_LINES);
+    glVertex2f(-0.780f, 0.010f); // Base of leaves
+    glVertex2f(-0.780f, 0.020f); // Tip of leaves
+    glEnd();
+
+
+    // --- Carrot 2 (Middle, slightly lower) ---
+    glColor3f(1.0f, 0.5f, 0.0f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.766f, 0.008f);
+    glVertex2f(-0.760f, 0.008f);
+    glVertex2f(-0.763f, -0.002f);
+    glEnd();
+
+    glColor3f(0.0f, 0.8f, 0.0f);
+    glBegin(GL_LINES);
+    glVertex2f(-0.763f, 0.008f);
+    glVertex2f(-0.763f, 0.018f);
+    glEnd();
+
+
+    // --- Carrot 3 (Right side, safely inside the slant) ---
+    glColor3f(1.0f, 0.5f, 0.0f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(-0.753f, 0.012f);
+    glVertex2f(-0.747f, 0.012f);
+    glVertex2f(-0.750f, 0.002f);
+    glEnd();
+
+    glColor3f(0.0f, 0.8f, 0.0f);
+    glBegin(GL_LINES);
+    glVertex2f(-0.750f, 0.012f);
+    glVertex2f(-0.750f, 0.022f);
+    glEnd();
+}
+
+
+
+void ornob_winding_road()
+{
+    glLineWidth(.5f);
+
+    // ==========================================
+    // PART 1 (Vertical-ish section)
+    // ==========================================
+    // 1. Muddy Surface (Anti-Clockwise: TL -> BL -> BR -> TR)
+    glColor3f(0.65f, 0.52f, 0.38f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.265f, 0.45f);  // Top Left
+    glVertex2f(-0.455f, 0.255f); // Bottom Left
+    glVertex2f(-0.419f, 0.255f); // Bottom Right
+    glVertex2f(-0.245f, 0.45f);  // Top Right
+    glEnd();
+
+    // 2. Black Borders
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINES);
+    // Left Border (Drawn Top to Bottom)
+    glVertex2f(-0.265f, 0.45f);
+    glVertex2f(-0.455f, 0.255f);
+    // Right Border (Drawn Bottom to Top to follow the anti-clockwise flow)
+    glVertex2f(-0.419f, 0.255f);
+    glVertex2f(-0.245f, 0.45f);
+    glEnd();
+
+    // ==========================================
+    // PART 2 (Horizontal bend)
+    // ==========================================
+    // 1. Muddy Surface (Anti-Clockwise: TL -> BL -> BR -> TR)
+    glColor3f(0.65f, 0.52f, 0.38f);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.705f, 0.286f); // Top Left
+    glVertex2f(-0.730f, 0.255f); // Bottom Left
+    glVertex2f(-0.430f, 0.255f); // Bottom Right
+    glVertex2f(-0.400f, 0.286f); // Top Right
+    glEnd();
+
+    // 2. Black Borders
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINES);
+    // Top Border (Drawn Right to Left)
+    glVertex2f(-0.424f, 0.286f);
+    glVertex2f(-0.705f, 0.286f);
+    // Bottom Border (Drawn Left to Right to follow flow)
+    glVertex2f(-0.730f, 0.255f);
+    glVertex2f(-0.42f, 0.255f);
+    glEnd();
+
+    // ==========================================
+    // PART 3 (Diagonal to the left edge)
+    // ==========================================
+    // 1. Muddy Surface (Anti-Clockwise: TL -> BL -> BR -> TR)
+    glColor3f(0.65f, 0.52f, 0.38f);
+    glBegin(GL_QUADS);
+    glVertex2f(-1.000f, 0.050f);  // Top Left (Edge of screen)
+    glVertex2f(-1.000f, -0.020f); // Bottom Left (Edge of screen)
+    glVertex2f(-0.642f, 0.286f);  // Bottom Right
+    glVertex2f(-0.692f, 0.286f);  // Top Right
+    glEnd();
+
+    // 2. Black Borders
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINES);
+    // Top Border (Drawn Right to Left)
+    glVertex2f(-0.692f, 0.286f);
+    glVertex2f(-1.000f, 0.050f);
+    // Bottom Border (Drawn Left to Right to follow flow)
+    glVertex2f(-1.000f, -0.020f);
+    glVertex2f(-0.642f, 0.286f);
+    glEnd();
+}
 
 
 void riverSide()
@@ -1531,27 +1770,49 @@ void riverSide()
     //
     glColor3f(0.60f, 0.90f, 0.55f);
     glBegin(GL_TRIANGLES);
-    glVertex2f(-.25,.45);
+    glVertex2f(-.24,.45);
     glVertex2f(-1.0,.45);
-    glVertex2f(-1.0,-.4);
+    glVertex2f(-1.0,-.42);
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.0f); // Black outline
     glLineWidth(1.0f);
     glBegin(GL_LINE_LOOP);
-    glVertex2f(-.25, .45);
+    glVertex2f(-.24, .45);
     glVertex2f(-1.0, .45);
-    glVertex2f(-1.0, -.4);
+    glVertex2f(-1.0, -.42);
     glEnd();
 
+
+    //ornob_curvy_road();
     ornob_cropSet3();
     ornob_mosque();
-    ornob_house1();
+    ornob_winding_road();
     ornob_house3();
     ornob_cropSet1();
     ornob_cropSet2();
     ornob_house4();
     ornob_house2();
+    ornob_gardenForHouse2();
+    //ornob_barrierForHouse2();
+    ornob_house1();
+    ornob_gardenForHouse1();
+
+    //tree5
+    glPushMatrix();
+    glTranslatef(-0.985f, -0.18f, 0.0f);
+    glScalef(0.25f, 0.25f, 1.0f);
+    ornob_PineTree();
+    glPopMatrix();
+
+
+    //tree4
+    glPushMatrix();
+    glTranslatef(-0.9f, -0.178f, 0.0f);
+    glScalef(0.25f, 0.25f, 1.0f);
+    ornob_PineTree();
+    glPopMatrix();
+
 
     //tree2
     glPushMatrix();
@@ -1562,14 +1823,14 @@ void riverSide()
 
     //tree3
     glPushMatrix();
-    glTranslatef(-0.89f, -0.25f, 0.0f);
+    glTranslatef(-0.89f, -0.26f, 0.0f);
     glScalef(0.25f, 0.25f, 1.0f);
     ornob_PineTree();
     glPopMatrix();
 
     //tree1
     glPushMatrix();
-    glTranslatef(-0.98f, -0.35f, 0.0f);
+    glTranslatef(-0.972f, -0.35f, 0.0f);
     glScalef(0.3f, 0.3f, 1.0f);
     ornob_PineTree();
     glPopMatrix();
@@ -1992,14 +2253,14 @@ void Airplane2()
     glPopMatrix();
 }
 
-void keyboardf(unsigned char key, int x, int y)
+/*void keyboardf(unsigned char key, int x, int y)
 {
     if(key == 'f')
         tFlagf = 1;
 
     if(key == 'g')
         tFlagf = 0;
-}
+}*/
 
 void updatef(int value)
 {
@@ -2831,8 +3092,12 @@ void keyboardS(unsigned char key, int x, int y)
         break;
     case 's':
         tFlag = 0;
-        break;
 
+        tFlagf=0;
+        break;
+    case 'f':
+        tFlagf=1;
+        break;
 
     }
     glutPostRedisplay();
@@ -2924,150 +3189,359 @@ void initGL()
     gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
 }
 
+// Ensure drawWindowDetail is defined ABOVE drawHome
+void drawBushes(float x, float y)
+{
+    glColor3f(0.35f, 0.50f, 0.15f);
+    float r = 0.035f;
+    for(float i=0; i<0.08f; i+=0.025f)
+    {
+        glBegin(GL_POLYGON);
+        for(int j=0; j<360; j+=30)
+            glVertex2f(x+i + r*cos(j*3.14/180), y + r*sin(j*3.14/180));
+        glEnd();
+    }
+}
 void drawHome()
 {
-    // 1. Main Structure (Brown Walls)
-    // Shifted lower: y starts at -0.6 and ends at -0.3
-    glColor3f(0.80f, 0.60f, 0.40f);
+    // 1. BASE STRIP (Cyan) - Slightly wider
+    glColor3f(0.0f, 0.70f, 0.80f);
     glBegin(GL_QUADS);
-    glVertex2f(0.75f, -0.60f); // Bottom-left
-    glVertex2f(0.98f, -0.60f); // Bottom-right
-    glVertex2f(0.98f, -0.30f); // Top-right
-    glVertex2f(0.75f, -0.30f); // Top-left
+    glVertex2f(0.75f, -0.71f);
+    glVertex2f(0.98f, -0.71f);
+    glVertex2f(0.98f, -0.67f);
+    glVertex2f(0.75f, -0.67f);
     glEnd();
 
-    // 2. Enlarged Roof (Red-Brown)
-    // Peak is moved to -0.15 so it stays below the Hospital windows
-    glColor3f(0.65f, 0.35f, 0.25f);
+    // 2. MAIN BODY (Light Blue) - Increased width and height
+    glColor3f(0.82f, 0.92f, 0.97f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.75f, -0.67f);
+    glVertex2f(0.98f, -0.67f);
+    glVertex2f(0.98f, -0.38f);
+    glVertex2f(0.75f, -0.38f);
+    glEnd();
+
+    // 3. ROOF BORDER (Thick Dark Brown)
+    // Peak at -0.28 to stay clear of hospital but show "increase"
+    glColor3f(0.35f, 0.20f, 0.15f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.71f, -0.39f);
+    glVertex2f(1.02f, -0.39f);
+    glVertex2f(0.865f, -0.28f);
+    glEnd();
+
+    // 4. MAIN ROOF (Lighter Brown)
+    glColor3f(0.45f, 0.30f, 0.25f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.74f, -0.38f);
+    glVertex2f(1.00f, -0.38f);
+    glVertex2f(0.865f, -0.30f);
+    glEnd();
+
+    // 5. DOOR (Centered on the right side of the wider body)
+    glColor3f(0.35f, 0.20f, 0.15f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.87f, -0.67f);
+    glVertex2f(0.95f, -0.67f);
+    glVertex2f(0.95f, -0.43f);
+    glVertex2f(0.87f, -0.43f);
+    glEnd();
+
+    // Golden Doorknob
+    glColor3f(0.95f, 0.75f, 0.20f);
+    float kX = 0.935f, kY = -0.55f, kR = 0.009f;
     glBegin(GL_POLYGON);
-    glVertex2f(0.72f, -0.30f); // Base-left overhang
-    glVertex2f(1.00f, -0.30f); // Base-right overhang
-    glVertex2f(0.95f, -0.15f); // Top-right
-    glVertex2f(0.77f, -0.15f); // Top-left
+    for(int i=0; i<360; i+=20)
+        glVertex2f(kX + kR*cos(i*3.14/180), kY + kR*sin(i*3.14/180));
     glEnd();
 
-    // 3. Bigger Door (Dark Brown)
-    glColor3f(0.45f, 0.25f, 0.15f);
+    // 6. WINDOW (Slightly larger to match house scale)
+    float wX = 0.77f, wY = -0.58f;
+    glColor3f(0.35f, 0.20f, 0.15f);
     glBegin(GL_QUADS);
-    glVertex2f(0.84f, -0.60f);
-    glVertex2f(0.89f, -0.60f);
-    glVertex2f(0.89f, -0.40f);
-    glVertex2f(0.84f, -0.40f);
+    glVertex2f(wX, wY);
+    glVertex2f(wX+0.07f, wY);
+    glVertex2f(wX+0.07f, wY+0.09f);
+    glVertex2f(wX, wY+0.09f);
+    glEnd();
+    glColor3f(0.65f, 0.85f, 0.95f); // Glass
+    glBegin(GL_QUADS);
+    glVertex2f(wX+0.006f, wY+0.006f);
+    glVertex2f(wX+0.064f, wY+0.006f);
+    glVertex2f(wX+0.064f, wY+0.084f);
+    glVertex2f(wX+0.006f, wY+0.084f);
     glEnd();
 
-    // 4. Two Larger Sky Blue Windows
-    glColor3f(0.53f, 0.81f, 0.92f);
-    glBegin(GL_QUADS);
-    // Left Window
-    glVertex2f(0.77f, -0.50f);
-    glVertex2f(0.82f, -0.50f);
-    glVertex2f(0.82f, -0.37f);
-    glVertex2f(0.77f, -0.37f);
+    // Window Cross
+    glColor3f(0.35f, 0.20f, 0.15f);
+    glLineWidth(2);
+    glBegin(GL_LINES);
+    glVertex2f(wX+0.035f, wY);
+    glVertex2f(wX+0.035f, wY+0.09f);
+    glVertex2f(wX, wY+0.045f);
+    glVertex2f(wX+0.07f, wY+0.045f);
+    glEnd();
 
-    // Right Window
-    glVertex2f(0.91f, -0.50f);
-    glVertex2f(0.96f, -0.50f);
-    glVertex2f(0.96f, -0.37f);
-    glVertex2f(0.91f, -0.37f);
+    // 7. BUSHES (Increased size to match the larger house)
+    drawBushes(0.75f, -0.73f);
+    drawBushes(0.95f, -0.73f);
+}
+
+void drawApartmentWindow(float x, float y)
+{
+    // 1. Grey Sill
+    glColor3f(0.6f, 0.6f, 0.6f);
+    glBegin(GL_QUADS);
+    glVertex2f(x - 0.005f, y - 0.01f);
+    glVertex2f(x + 0.065f, y - 0.01f);
+    glVertex2f(x + 0.065f, y);
+    glVertex2f(x - 0.005f, y);
+    glEnd();
+
+    // 2. Red Frame
+    glColor3f(0.85f, 0.20f, 0.15f);
+    glBegin(GL_QUADS);
+    glVertex2f(x, y);
+    glVertex2f(x + 0.06f, y);
+    glVertex2f(x + 0.06f, y + 0.07f);
+    glVertex2f(x, y + 0.07f);
+    glEnd();
+
+    // 3. Glass Panes
+    glColor3f(0.75f, 0.90f, 0.95f);
+    glBegin(GL_QUADS);
+    glVertex2f(x + 0.005f, y + 0.005f);
+    glVertex2f(x + 0.025f, y + 0.005f);
+    glVertex2f(x + 0.025f, y + 0.065f);
+    glVertex2f(x + 0.005f, y + 0.065f);
+
+    glVertex2f(x + 0.035f, y + 0.005f);
+    glVertex2f(x + 0.055f, y + 0.005f);
+    glVertex2f(x + 0.055f, y + 0.065f);
+    glVertex2f(x + 0.035f, y + 0.065f);
     glEnd();
 }
+
+void drawNeighborApartment()
+{
+    // === 1. MAIN BODY (Cream Color) ===
+    glColor3f(0.93f, 0.88f, 0.78f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.52f, -0.71f);
+    glVertex2f(0.72f, -0.71f);
+    glVertex2f(0.72f, -0.32f);
+    glVertex2f(0.52f, -0.32f);
+    glEnd();
+
+    // === 2. ROOF (Red) ===
+    glColor3f(0.85f, 0.20f, 0.15f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.48f, -0.32f);
+    glVertex2f(0.76f, -0.32f);
+    glVertex2f(0.62f, -0.15f);
+    glEnd();
+
+    // === 3. WINDOWS (Aligned to avoid door) ===
+    // Top Floor
+    drawApartmentWindow(0.55f, -0.44f);
+    drawApartmentWindow(0.64f, -0.44f);
+    // Middle Floor
+    drawApartmentWindow(0.55f, -0.56f);
+    drawApartmentWindow(0.64f, -0.56f);
+    // Bottom Floor (Left side only)
+    drawApartmentWindow(0.55f, -0.68f);
+
+    // === 4. DOOR & PORCH (Lowered to avoid window clash) ===
+    // Porch Red Roof (Peak is now below the middle window)
+    glColor3f(0.85f, 0.20f, 0.15f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.63f, -0.60f);
+    glVertex2f(0.71f, -0.60f);
+    glVertex2f(0.67f, -0.56f);
+    glEnd();
+
+    // Door Frame
+    glColor3f(0.55f, 0.40f, 0.30f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.64f, -0.71f);
+    glVertex2f(0.70f, -0.71f);
+    glVertex2f(0.70f, -0.60f);
+    glVertex2f(0.64f, -0.60f);
+    glEnd();
+
+    // Door Doorknob
+    glColor3f(0.7f, 0.7f, 0.7f);
+    glPointSize(3);
+    glBegin(GL_POINTS);
+    glVertex2f(0.65f, -0.66f);
+    glEnd();
+
+    // 6-Pane Window on Door (Shifted down)
+    glColor3f(0.85f, 0.20f, 0.15f);
+    for(float wx = 0.655f; wx <= 0.675f; wx += 0.012f)
+    {
+        for(float wy = -0.65f; wy <= -0.62f; wy += 0.012f)
+        {
+            glBegin(GL_QUADS);
+            glVertex2f(wx, wy);
+            glVertex2f(wx+0.008f, wy);
+            glVertex2f(wx+0.008f, wy+0.008f);
+            glVertex2f(wx, wy+0.008f);
+            glEnd();
+        }
+    }
+}
+
 void drawSchool()
 {
-    glColor3f(0.95f, 0.85f, 0.7f);
+    float bodyOrange[] = {1.0f, 0.65f, 0.35f};
+    float roofGrey[] = {0.25f, 0.30f, 0.35f};
+    float bannerWhite[] = {0.95f, 0.95f, 0.95f};
+    float glassBlue[] = {0.60f, 0.85f, 0.95f};
+    float doorBrown[] = {0.45f, 0.25f, 0.15f};
+
+    // 1. MAIN BODY (Expanded Width: 0.38 to 0.72)
+    glColor3fv(bodyOrange);
     glBegin(GL_QUADS);
-    glVertex2f(0.42f, 0.00f);
-    glVertex2f(0.70f, 0.00f);
-    glVertex2f(0.70f, 0.30f);
-    glVertex2f(0.42f, 0.30f);
+    // Left Wing (y increased to 0.28)
+    glVertex2f(0.38f, 0.00f);
+    glVertex2f(0.47f, 0.00f);
+    glVertex2f(0.47f, 0.28f);
+    glVertex2f(0.38f, 0.28f);
+    // Right Wing
+    glVertex2f(0.63f, 0.00f);
+    glVertex2f(0.72f, 0.00f);
+    glVertex2f(0.72f, 0.28f);
+    glVertex2f(0.63f, 0.28f);
+    // Central Tower (Taller: 0.33)
+    glVertex2f(0.47f, 0.00f);
+    glVertex2f(0.63f, 0.00f);
+    glVertex2f(0.63f, 0.33f);
+    glVertex2f(0.47f, 0.33f);
     glEnd();
 
-    // 2. Red Slanted Roof
-    glColor3f(0.8f, 0.2f, 0.1f);
-    glBegin(GL_QUADS);
-    glVertex2f(0.40f, 0.30f);
-    glVertex2f(0.72f, 0.30f);
-    glVertex2f(0.68f, 0.40f);
-    glVertex2f(0.44f, 0.40f);
+    // 2. ROOFS (Scaled up)
+    glColor3fv(roofGrey);
+    glBegin(GL_QUADS); // Side flat roofs
+    glVertex2f(0.37f, 0.28f);
+    glVertex2f(0.47f, 0.28f);
+    glVertex2f(0.47f, 0.31f);
+    glVertex2f(0.37f, 0.31f);
+    glVertex2f(0.63f, 0.28f);
+    glVertex2f(0.73f, 0.28f);
+    glVertex2f(0.73f, 0.31f);
+    glVertex2f(0.63f, 0.31f);
+    glEnd();
+    glBegin(GL_TRIANGLES); // Central Gable
+    glVertex2f(0.46f, 0.33f);
+    glVertex2f(0.64f, 0.33f);
+    glVertex2f(0.55f, 0.43f);
     glEnd();
 
-
-
-    // 4. Centered Door (Middle Down)
-    glColor3f(0.4f, 0.2f, 0.1f); // Brown
-    glBegin(GL_QUADS);
-    glVertex2f(0.53f, 0.00f);
-    glVertex2f(0.59f, 0.00f);
-    glVertex2f(0.59f, 0.10f);
-    glVertex2f(0.53f, 0.10f);
+    // 3. BANNER & CLOCK
+    glColor3fv(bannerWhite);
+    glBegin(GL_QUADS); // "SCHOOL" Banner
+    glVertex2f(0.48f, 0.27f);
+    glVertex2f(0.62f, 0.27f);
+    glVertex2f(0.62f, 0.32f);
+    glVertex2f(0.48f, 0.32f);
+    glEnd();
+    float cx = 0.55f, cy = 0.37f, r = 0.028f;
+    glBegin(GL_POLYGON); // Larger Clock
+    for(int i=0; i<360; i+=15)
+        glVertex2f(cx + r*cos(i*3.1415/180), cy + r*sin(i*3.1415/180));
     glEnd();
 
-    // 5. 6 Windows (Two rows of three)
-    glColor3f(0.2f, 0.3f, 0.4f); // Dark Blue
+    // 4. ENTRANCE (Centered on new width)
+    glColor3fv(roofGrey);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.50f, 0.13f);
+    glVertex2f(0.60f, 0.13f);
+    glVertex2f(0.55f, 0.18f);
+    glEnd();
+    glColor3fv(doorBrown);
     glBegin(GL_QUADS);
-    // --- Top Row ---
-    // Left
-    glVertex2f(0.45f, 0.17f);
-    glVertex2f(0.50f, 0.17f);
-    glVertex2f(0.50f, 0.22f);
-    glVertex2f(0.45f, 0.22f);
-    // Middle
-    glVertex2f(0.53f, 0.17f);
-    glVertex2f(0.59f, 0.17f);
-    glVertex2f(0.59f, 0.22f);
-    glVertex2f(0.53f, 0.22f);
-    // Right
-    glVertex2f(0.62f, 0.17f);
-    glVertex2f(0.67f, 0.17f);
-    glVertex2f(0.67f, 0.22f);
-    glVertex2f(0.62f, 0.22f);
-
-    // --- Bottom Row ---
-    // Left
-    glVertex2f(0.45f, 0.05f);
-    glVertex2f(0.50f, 0.05f);
-    glVertex2f(0.50f, 0.10f);
-    glVertex2f(0.45f, 0.10f);
-    // Right
-    glVertex2f(0.62f, 0.05f);
-    glVertex2f(0.67f, 0.05f);
-    glVertex2f(0.67f, 0.10f);
-    glVertex2f(0.62f, 0.10f);
-
+    glVertex2f(0.52f, 0.02f);
+    glVertex2f(0.58f, 0.02f);
+    glVertex2f(0.58f, 0.13f);
+    glVertex2f(0.52f, 0.13f);
     glEnd();
 
+    // 5. WINDOWS
+    glColor3fv(glassBlue);
+    glBegin(GL_QUADS);
+    // Middle Row: 3 Windows (Shifted for new tower width)
+    glVertex2f(0.49f, 0.20f);
+    glVertex2f(0.52f, 0.20f);
+    glVertex2f(0.52f, 0.25f);
+    glVertex2f(0.49f, 0.25f);
+    glVertex2f(0.535f, 0.20f);
+    glVertex2f(0.565f, 0.20f);
+    glVertex2f(0.565f, 0.25f);
+    glVertex2f(0.535f, 0.25f);
+    glVertex2f(0.58f, 0.20f);
+    glVertex2f(0.61f, 0.20f);
+    glVertex2f(0.61f, 0.25f);
+    glVertex2f(0.58f, 0.25f);
+
+    // Side Wings: 2x2 Larger Windows
+    for(float xPos = 0.39f; xPos <= 0.43f; xPos += 0.04f)   // Left
+    {
+        for(float yPos = 0.06f; yPos <= 0.18f; yPos += 0.10f)
+        {
+            glVertex2f(xPos, yPos);
+            glVertex2f(xPos+0.03f, yPos);
+            glVertex2f(xPos+0.03f, yPos+0.06f);
+            glVertex2f(xPos, yPos+0.06f);
+        }
+    }
+    for(float xPos = 0.65f; xPos <= 0.69f; xPos += 0.04f)   // Right
+    {
+        for(float yPos = 0.06f; yPos <= 0.18f; yPos += 0.10f)
+        {
+            glVertex2f(xPos, yPos);
+            glVertex2f(xPos+0.03f, yPos);
+            glVertex2f(xPos+0.03f, yPos+0.06f);
+            glVertex2f(xPos, yPos+0.06f);
+        }
+    }
+    glEnd();
 }
+
 void drawFlag()
 {
     // 1. Small Flagpole (Stick)
-    // Positioned further left at x=0.38
+    // Moved to 0.30 to sit between the brown building and the school
     glColor3f(0.4f, 0.4f, 0.4f);
     glBegin(GL_QUADS);
-    glVertex2f(0.380f, -0.05f); // Bottom
-    glVertex2f(0.385f, -0.05f);
-    glVertex2f(0.385f,  0.22f); // Top
-    glVertex2f(0.380f,  0.22f);
+    glVertex2f(0.300f, -0.05f); // Bottom
+    glVertex2f(0.305f, -0.05f);
+    glVertex2f(0.305f,  0.22f); // Top
+    glVertex2f(0.300f,  0.22f);
     glEnd();
 
     // 2. Small Green Rectangle
+    // The flag now extends from 0.305 to 0.380
     glColor3f(0.0f, 0.42f, 0.31f);
     glBegin(GL_QUADS);
-    glVertex2f(0.385f, 0.14f);
-    glVertex2f(0.460f, 0.14f);
-    glVertex2f(0.460f, 0.20f);
-    glVertex2f(0.385f, 0.20f);
+    glVertex2f(0.305f, 0.14f);
+    glVertex2f(0.380f, 0.14f);
+    glVertex2f(0.380f, 0.20f);
+    glVertex2f(0.305f, 0.20f);
     glEnd();
 
-    // 3. Red Circle (Disk) using GL_TRIANGLE_FAN
+    // 3. Red Circle (Disk)
     glColor3f(0.95f, 0.18f, 0.13f);
 
-    float circleX = 0.415f;    // Center X
-    float circleY = 0.170f;    // Center Y
-    float radius = 0.015f;     // Circle size
-    int triangleAmount = 40;   // Smoothness
+    float circleX = 0.335f;    // Centered within the new green rectangle
+    float circleY = 0.170f;
+    float radius = 0.015f;
+    int triangleAmount = 40;
     GLfloat twicePi = 2.0f * 3.14159f;
 
     glBegin(GL_TRIANGLE_FAN);
-    glVertex2f(circleX, circleY); // Center of circle
+    glVertex2f(circleX, circleY);
     for(int i = 0; i <= triangleAmount; i++)
     {
         glVertex2f(
@@ -3079,138 +3553,201 @@ void drawFlag()
 }
 void drawHospital()
 {
+    // === Colors ===
+    float wingGrey[] = {0.88f, 0.94f, 0.96f};
+    float centerGrey[] = {0.62f, 0.74f, 0.80f};
+    float glassBlue[] = {0.0f, 0.72f, 0.92f};
+    float signBlue[] = {0.0f, 0.30f, 0.70f};
+    float hospitalRed[] = {0.95f, 0.15f, 0.10f};
+    float pureWhite[] = {1.0f, 1.0f, 1.0f};
 
-    glColor3f(0.55f, 0.6f, 0.65f);
+    // 1. BASE (Lowered to -0.22 to clear Home Roof)
+    glColor3f(0.5f, 0.5f, 0.55f);
     glBegin(GL_QUADS);
-    glVertex2f(0.71f, -0.10f);
-    glVertex2f(1.00f, -0.10f);
-    glVertex2f(1.00f, 0.24f);
-    glVertex2f(0.71f, 0.24f);
+    glVertex2f(0.70f, -0.22f);
+    glVertex2f(1.00f, -0.22f);
+    glVertex2f(1.00f, -0.18f);
+    glVertex2f(0.70f, -0.18f);
     glEnd();
 
-
-    glColor3f(1.0f, 0.0f, 0.0f);
+    // 2. SIDE WINGS (Shifted Y Down)
+    glColor3fv(wingGrey);
     glBegin(GL_QUADS);
-    glVertex2f(0.73f, 0.12f);
-    glVertex2f(0.81f, 0.12f);
-    glVertex2f(0.81f, 0.22f);
-    glVertex2f(0.73f, 0.22f);
+    // Left Wing
+    glVertex2f(0.73f, -0.18f);
+    glVertex2f(0.84f, -0.18f);
+    glVertex2f(0.84f,  0.15f); // Ends at 0.15
+    glVertex2f(0.73f,  0.15f);
+    // Right Wing
+    glVertex2f(0.96f, -0.18f);
+    glVertex2f(1.00f, -0.18f);
+    glVertex2f(1.00f,  0.15f);
+    glVertex2f(0.96f,  0.15f);
     glEnd();
 
-    glColor3f(1.0f, 1.0f, 1.0f);
-    glBegin(GL_QUADS); // Vertical
-    glVertex2f(0.76f, 0.14f);
-    glVertex2f(0.78f, 0.14f);
-    glVertex2f(0.78f, 0.20f);
-    glVertex2f(0.76f, 0.20f);
-    // Horizontal
-    glVertex2f(0.74f, 0.16f);
-    glVertex2f(0.80f, 0.16f);
-    glVertex2f(0.80f, 0.18f);
-    glVertex2f(0.74f, 0.18f);
+    // 3. MAIN CENTER BODY (Lowered to stay under Towers)
+    glColor3fv(centerGrey);
+    glBegin(GL_QUADS);
+    glVertex2f(0.84f, -0.18f);
+    glVertex2f(0.96f, -0.18f);
+    glVertex2f(0.96f,  0.18f); // Ends at 0.18 (Twin Towers start at 0.25)
+    glVertex2f(0.84f,  0.18f);
     glEnd();
 
-    // 3. Yellow Windows
-    glColor3f(1.0f, 1.0f, 0.0f);
+    // 4. THE BLUE SIGN
+    glColor3fv(signBlue);
     glBegin(GL_QUADS);
-    // Left Column (under + sign) - Row 1
-    glVertex2f(0.73f, 0.06f);
-    glVertex2f(0.76f, 0.06f);
-    glVertex2f(0.76f, 0.10f);
-    glVertex2f(0.73f, 0.10f);
-    // Left Column (under + sign) - Row 2 (with gap)
-    glVertex2f(0.73f, 0.00f);
-    glVertex2f(0.76f, 0.00f);
-    glVertex2f(0.76f, 0.04f);
-    glVertex2f(0.73f, 0.04f);
-
-    // Right Column (same height as left) - Row 1
-    glVertex2f(0.78f, 0.06f);
-    glVertex2f(0.81f, 0.06f);
-    glVertex2f(0.81f, 0.10f);
-    glVertex2f(0.78f, 0.10f);
-    // Right Column (same height as left) - Row 2
-    glVertex2f(0.78f, 0.00f);
-    glVertex2f(0.81f, 0.00f);
-    glVertex2f(0.81f, 0.04f);
-    glVertex2f(0.78f, 0.04f);
-
-    // Window upper right of door (not crossing the red box row)
-    glVertex2f(0.93f, 0.06f);
-    glVertex2f(0.97f, 0.06f);
-    glVertex2f(0.97f, 0.11f);
-    glVertex2f(0.93f, 0.11f);
-
-    // Window left of the door
-    glVertex2f(0.83f, 0.06f);
-    glVertex2f(0.86f, 0.06f);
-    glVertex2f(0.86f, 0.11f);
-    glVertex2f(0.83f, 0.11f);
+    glVertex2f(0.85f, -0.05f);
+    glVertex2f(0.95f, -0.05f);
+    glVertex2f(0.95f,  0.01f);
+    glVertex2f(0.85f,  0.01f);
     glEnd();
 
-
-    glColor3f(1.0f, 1.0f, 1.0f);
+    // 5. ENTRANCE PORCH
+    glColor3fv(pureWhite);
     glBegin(GL_QUADS);
-    glVertex2f(0.88f, -0.10f); // Left bottom
-    glVertex2f(0.92f, -0.10f); // Right bottom
-    glVertex2f(0.92f, 0.04f);  // Right top (stays below windows)
-    glVertex2f(0.88f, 0.04f);  // Left top
+    glVertex2f(0.865f, -0.18f);
+    glVertex2f(0.875f, -0.18f);
+    glVertex2f(0.875f, -0.08f);
+    glVertex2f(0.865f, -0.08f);
+    glVertex2f(0.930f, -0.18f);
+    glVertex2f(0.940f, -0.18f);
+    glVertex2f(0.940f, -0.08f);
+    glVertex2f(0.930f, -0.08f);
+    glVertex2f(0.865f, -0.08f);
+    glVertex2f(0.940f, -0.08f);
+    glVertex2f(0.940f, -0.06f);
+    glVertex2f(0.865f, -0.06f);
+    glEnd();
+
+    // 6. ENTRANCE DOORS
+    glColor3fv(glassBlue);
+    glBegin(GL_QUADS);
+    glVertex2f(0.88f, -0.18f);
+    glVertex2f(0.92f, -0.18f);
+    glVertex2f(0.92f, -0.08f);
+    glVertex2f(0.88f, -0.08f);
+    glEnd();
+
+    // 7. WINDOWS (Adjusted row height)
+    glColor3fv(glassBlue);
+    glBegin(GL_QUADS);
+    for(float rowY = -0.15f; rowY <= 0.05f; rowY += 0.08f)
+    {
+        glVertex2f(0.74f, rowY);
+        glVertex2f(0.76f, rowY);
+        glVertex2f(0.76f, rowY+0.04f);
+        glVertex2f(0.74f, rowY+0.04f);
+        glVertex2f(0.78f, rowY);
+        glVertex2f(0.80f, rowY);
+        glVertex2f(0.80f, rowY+0.04f);
+        glVertex2f(0.78f, rowY+0.04f);
+        glVertex2f(0.81f, rowY);
+        glVertex2f(0.83f, rowY);
+        glVertex2f(0.83f, rowY+0.04f);
+        glVertex2f(0.81f, rowY+0.04f);
+        if(rowY > 0.02f)
+        {
+            glVertex2f(0.86f, rowY);
+            glVertex2f(0.90f, rowY);
+            glVertex2f(0.90f, rowY+0.05f);
+            glVertex2f(0.86f, rowY+0.05f);
+            glVertex2f(0.91f, rowY);
+            glVertex2f(0.95f, rowY);
+            glVertex2f(0.95f, rowY+0.05f);
+            glVertex2f(0.91f, rowY+0.05f);
+        }
+        glVertex2f(0.97f, rowY);
+        glVertex2f(0.99f, rowY);
+        glVertex2f(0.99f, rowY+0.04f);
+        glVertex2f(0.97f, rowY+0.04f);
+    }
+    glEnd();
+
+    // 8. RED CROSS (Centered above the Signboard)
+    float cx = 0.90f; // Middle of the signboard
+    float cy = 0.07f; // Slightly above the top of the signboard (0.01f)
+    float r = 0.03f;  // Radius of the red circle
+
+    // Red Circle Background
+    glColor3fv(hospitalRed);
+    glBegin(GL_POLYGON);
+    for(int i=0; i<360; i+=10)
+        glVertex2f(cx + r*cos(i*3.14159/180), cy + r*sin(i*3.14159/180));
+    glEnd();
+
+    // White Cross Symbol
+    glColor3fv(pureWhite);
+    glBegin(GL_QUADS);
+    // Vertical bar
+    glVertex2f(cx-0.005f, cy-0.02f);
+    glVertex2f(cx+0.005f, cy-0.02f);
+    glVertex2f(cx+0.005f, cy+0.02f);
+    glVertex2f(cx-0.005f, cy+0.02f);
+    // Horizontal bar
+    glVertex2f(cx-0.02f, cy-0.005f);
+    glVertex2f(cx+0.02f, cy-0.005f);
+    glVertex2f(cx+0.02f, cy+0.005f);
+    glVertex2f(cx-0.02f, cy+0.005f);
     glEnd();
 }
+
 void drawBuilding()
 {
-    // 1. Main Structure (Brown)
-    glColor3f(0.55f, 0.27f, 0.07f);
+    //position
+    float startX = 0.20f;
+    float bWidth = 0.15f;
+    float startY = 0.215f;
+    //floor height
+    float floorH = 0.22f;
+    int totalFloors = 3;
+
+    // === 2. Colors ===
+    float wallBrown[] = {0.50f, 0.40f, 0.35f};
+    float trimGold[] = {0.85f, 0.75f, 0.50f};
+    float glassBlue[] = {0.35f, 0.65f, 0.85f};
+
+    // === 3. Main Structure ===
+    glColor3fv(wallBrown);
     glBegin(GL_QUADS);
-    glVertex2f(0.25f, 0.15f);
-    glVertex2f(0.40f, 0.15f);
-    glVertex2f(0.40f, 0.47f);
-    glVertex2f(0.25f, 0.47f);
+    glVertex2f(startX, startY);
+    glVertex2f(startX + bWidth, startY);
+    glVertex2f(startX + bWidth, startY + (floorH * totalFloors)); // Total Y is now ~0.875
+    glVertex2f(startX, startY + (floorH * totalFloors));
     glEnd();
 
-    // 2. Windows (Sky Blue)
-    glColor3f(0.53f, 0.81f, 0.92f);
-    glBegin(GL_QUADS);
-    // --- ROW 1 (Top): 3 Windows ---
-    // Left
-    glVertex2f(0.27f, 0.40f);
-    glVertex2f(0.30f, 0.40f);
-    glVertex2f(0.30f, 0.45f);
-    glVertex2f(0.27f, 0.45f);
-    // Middle
-    glVertex2f(0.31f, 0.40f);
-    glVertex2f(0.34f, 0.40f);
-    glVertex2f(0.34f, 0.45f);
-    glVertex2f(0.31f, 0.45f);
-    // Right
-    glVertex2f(0.35f, 0.40f);
-    glVertex2f(0.38f, 0.40f);
-    glVertex2f(0.38f, 0.45f);
-    glVertex2f(0.35f, 0.45f);
+    // === 4. Details (Scaled for taller floors) ===
+    for (int i = 0; i < totalFloors; i++)
+    {
+        float currentY = startY + (i * floorH);
 
+        // Horizontal Trim Lines
+        glColor3fv(trimGold);
+        glLineWidth(2);
+        glBegin(GL_LINES);
+        glVertex2f(startX, currentY);
+        glVertex2f(startX + bWidth, currentY);
+        glEnd();
 
-    // Left-Center
-    glVertex2f(0.28f, 0.30f);
-    glVertex2f(0.32f, 0.30f);
-    glVertex2f(0.32f, 0.35f);
-    glVertex2f(0.28f, 0.35f);
-    // Right-Center
-    glVertex2f(0.33f, 0.30f);
-    glVertex2f(0.37f, 0.30f);
-    glVertex2f(0.37f, 0.35f);
-    glVertex2f(0.33f, 0.35f);
+        // Windows (Scaled taller to match building height)
+        glColor3fv(glassBlue);
+        glBegin(GL_QUADS);
+        for (float winX = startX + 0.02f; winX < startX + bWidth - 0.02f; winX += 0.045f)
+        {
+            glVertex2f(winX, currentY + 0.06f);
+            glVertex2f(winX + 0.03f, currentY + 0.06f);
+            glVertex2f(winX + 0.03f, currentY + 0.18f); // Taller window
+            glVertex2f(winX, currentY + 0.18f); // Taller window
+        }
+        glEnd();
 
-    // --- ROW 3 (Bottom): 2 Windows (Centered)
-    glVertex2f(0.28f, 0.20f);
-    glVertex2f(0.32f, 0.20f);
-    glVertex2f(0.32f, 0.25f);
-    glVertex2f(0.28f, 0.25f);
-    // Right-Center
-    glVertex2f(0.33f, 0.20f);
-    glVertex2f(0.37f, 0.20f);
-    glVertex2f(0.37f, 0.25f);
-    glVertex2f(0.33f, 0.25f);
-    glEnd();
+        // Balcony Rails
+        glColor3fv(trimGold);
+        glBegin(GL_LINES);
+        glVertex2f(startX + 0.01f, currentY + 0.06f);
+        glVertex2f(startX + bWidth - 0.01f, currentY + 0.06f);
+        glEnd();
+    }
 }
 void drawTwinTowers()
 {
@@ -3317,6 +3854,8 @@ void display(void)
     drawBuilding();
     drawTwinTowers();
     drawFlag();
+    drawNeighborApartment();
+    //drawBusStop();
 
 
     ///////////////////////////////
@@ -3345,7 +3884,7 @@ int main(int argc, char** argv)
     glutCreateWindow("Scenario");
     glutDisplayFunc(display);
 
-    glutKeyboardFunc(keyboardf);
+    //glutKeyboardFunc(keyboardf);
     glutKeyboardFunc(keyboardS);
     glutTimerFunc(16, updatef, 0);
     glutTimerFunc(16, updateS, 0);
