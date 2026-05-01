@@ -22,13 +22,13 @@ int rFlag = 0;
 GLfloat speed = 1.0f;
 
 // Ornob (ship)
-GLfloat ornob_tx = 0.0f;
-GLfloat ornob_ty = 0.0f;
-GLfloat ornob_angle = 0.0f;
-GLfloat ornob_scale = 1.0f;
-int ornob_moveFlag = 0;
+float shipProgress = 0.0f;
+float shipSpeed = 0.0015f;
+bool isMoving = true;
+
 
 // ========== DAY/NIGHT TRANSITION ==========
+float dayFactor = 0.0f;
 float nightFactor = 0.0f;      // 0 = full day, 1 = full night
 float targetNight = 0.0f;
 int transitioning = 0;
@@ -404,7 +404,7 @@ void ship()
 void ornob_house1()
 {
     glLineWidth(.25f);
-     // body1 (Front Wall)
+    // body1 (Front Wall)
     glColor3f(0.80f, 0.82f, 0.85f);
     glBegin(GL_QUADS);
     glVertex2f(-0.64f, 0.2f);
@@ -419,7 +419,7 @@ void ornob_house1()
     glVertex2f(-0.59f, 0.12f);
     glVertex2f(-0.59f, 0.2f);
     glEnd();
-     // body2 (Side Wall)
+    // body2 (Side Wall)
     glColor3f(0.70f, 0.72f, 0.75f);
     glBegin(GL_QUADS);
     glVertex2f(-0.59f, 0.2f);
@@ -1066,7 +1066,7 @@ void ornob_mosque()
     glVertex2f(-0.7262f, 0.4668f);
     glEnd();
 
-    // Mosque doors (emerald green during day, bright yellow at night)
+    // Mosque doors
     // Front Grand Entrance 1 (Left)
     interpolateColor(nightFactor, 0.0f, 0.4f, 0.2f, 1.0f, 0.85f, 0.20f);
     glBegin(GL_QUADS);
@@ -1289,7 +1289,7 @@ void ornob_pineTree_model()
 
 void ornob_trees()
 {
-     //tree5
+    //tree5
     glPushMatrix();
     glTranslatef(-0.985f, -0.18f, 0.0f);
     glScalef(0.25f, 0.25f, 1.0f);
@@ -1420,6 +1420,35 @@ void roadSide()
     glVertex2f(-0.50f, -1.0f);
     glEnd();
 }
+
+
+void updateShip(int value){
+if (isMoving) {
+        shipProgress += shipSpeed;
+        if (shipProgress > 1.0f) {
+            shipProgress = 0.0f;
+        }
+        glutPostRedisplay();
+    }
+    glutTimerFunc(8, updateShip, 0);
+}
+
+
+void ship_transition()
+{
+    float currentX = -0.7f + shipProgress * (-0.04f - (-0.7f));
+    float currentY = -.9f + shipProgress * (0.5f - (-.9f));
+    float currentScale = 1.6f + shipProgress * (0.2f - 1.6f);
+
+    glPushMatrix();
+    glTranslatef(currentX, currentY, 0.0f);
+    glScalef(currentScale, currentScale, 1.0f);
+
+    ship();
+
+    glPopMatrix();
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -2571,8 +2600,21 @@ void keyboardS(unsigned char key, int x, int y)
     case 'f':
         tFlagf = 1;
         break;
-    case 'm':
-        if (!transitioning && nightFactor < 0.99f)
+    case 'o':
+        isMoving = true;
+        break;
+    case 'p':
+        isMoving = false;
+        break;
+    case ']':
+        shipSpeed *= 1.1f;
+        break;
+    case '[':
+        shipSpeed *= 0.9f;
+        break;
+
+    case '3':
+        if (!transitioning && nightFactor !=1)
         {
             transitioning = 1;
             targetNight = 1.0f;
@@ -2581,6 +2623,7 @@ void keyboardS(unsigned char key, int x, int y)
     }
     glutPostRedisplay();
 }
+
 
 void updateS(int value)
 {
@@ -3208,7 +3251,7 @@ void drawRightGround()
         interpolateColor(nightFactor, 0.60f, 0.90f, 0.55f, 0.12f, 0.28f, 0.12f);
 
     glBegin(GL_POLYGON);
-    glVertex2f(0.20f, 0.45f);   // top left (just below horizon)
+    glVertex2f(0.0f, 0.45f);   // top left (just below horizon)
     glVertex2f(1.00f, 0.45f);   // top right
     glVertex2f(1.00f, -1.00f);  // bottom right
     glVertex2f(0.20f, -1.00f);  // bottom left
@@ -3258,21 +3301,17 @@ void display(void)
     drawFlag();
     drawNeighborApartment();
 
-
+//////////////////////////
+////ORNOB/////
     water();
     riverSide();
     roadSide();
+    ship_transition();
+//////////////////////
 
     trafficLight();
     speedLimit();
 
-    glPushMatrix();
-    glTranslatef(ornob_tx, ornob_ty, 0.0f);
-    glScalef(ornob_scale, ornob_scale, 1.0f);
-    ship();
-    glPopMatrix();
-
-    // added
 
     glFlush();
 }
@@ -3290,8 +3329,9 @@ int main(int argc, char** argv)
     glutKeyboardFunc(keyboardS);
     glutTimerFunc(16, updatef, 0);
     glutTimerFunc(16, updateS, 0);
+    glutTimerFunc(0, updateShip, 0);
 
-    glClearColor(0.5f,0.8f,0.5f,1.0f);
+    glClearColor(1.0f,1.0f,1.0f,1.0f);
     gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
     glutMainLoop();
     return 0;
