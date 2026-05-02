@@ -265,3 +265,10 @@
 	<_mingw.h>
 	<stddef.h>
 
+1777748755 source:c:\users\ornob\desktop\glut-urban-traffic-simulation\finalversion1\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<time.h>
+	<math.h>
+	<stdlib.h>
+

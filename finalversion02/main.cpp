@@ -3834,6 +3834,87 @@ void updateS(int value)
 /////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 //SAFIUL
+void drawApartmentWindow(float x, float y)
+{
+    glColor3f(0.6f, 0.6f, 0.6f);
+    glBegin(GL_QUADS);
+    glVertex2f(x - 0.005f, y - 0.01f);
+    glVertex2f(x + 0.065f, y - 0.01f);
+    glVertex2f(x + 0.065f, y);
+    glVertex2f(x - 0.005f, y);
+    glEnd();
+    glColor3f(0.85f, 0.20f, 0.15f);
+    glBegin(GL_QUADS);
+    glVertex2f(x, y);
+    glVertex2f(x + 0.06f, y);
+    glVertex2f(x + 0.06f, y + 0.07f);
+    glVertex2f(x, y + 0.07f);
+    glEnd();
+    setWindowColor(nightFactor);
+    glBegin(GL_QUADS);
+    glVertex2f(x + 0.005f, y + 0.005f);
+    glVertex2f(x + 0.025f, y + 0.005f);
+    glVertex2f(x + 0.025f, y + 0.065f);
+    glVertex2f(x + 0.005f, y + 0.065f);
+    glVertex2f(x + 0.035f, y + 0.005f);
+    glVertex2f(x + 0.055f, y + 0.005f);
+    glVertex2f(x + 0.055f, y + 0.065f);
+    glVertex2f(x + 0.035f, y + 0.065f);
+    glEnd();
+}
+void drawNeighborApartment()
+{
+    glColor3f(0.93f, 0.88f, 0.78f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.52f, -0.71f);
+    glVertex2f(0.72f, -0.71f);
+    glVertex2f(0.72f, -0.32f);
+    glVertex2f(0.52f, -0.32f);
+    glEnd();
+    glColor3f(0.85f, 0.20f, 0.15f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.48f, -0.32f);
+    glVertex2f(0.76f, -0.32f);
+    glVertex2f(0.62f, -0.15f);
+    glEnd();
+    drawApartmentWindow(0.55f, -0.44f);
+    drawApartmentWindow(0.64f, -0.44f);
+    drawApartmentWindow(0.55f, -0.56f);
+    drawApartmentWindow(0.64f, -0.56f);
+    drawApartmentWindow(0.55f, -0.68f);
+    glColor3f(0.85f, 0.20f, 0.15f);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.63f, -0.60f);
+    glVertex2f(0.71f, -0.60f);
+    glVertex2f(0.67f, -0.56f);
+    glEnd();
+    glColor3f(0.55f, 0.40f, 0.30f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.64f, -0.71f);
+    glVertex2f(0.70f, -0.71f);
+    glVertex2f(0.70f, -0.60f);
+    glVertex2f(0.64f, -0.60f);
+    glEnd();
+    glColor3f(0.7f, 0.7f, 0.7f);
+    glPointSize(3);
+    glBegin(GL_POINTS);
+    glVertex2f(0.65f, -0.66f);
+    glEnd();
+    glColor3f(0.85f, 0.20f, 0.15f);
+    for(float wx = 0.655f; wx <= 0.675f; wx += 0.012f)
+    {
+        for(float wy = -0.65f; wy <= -0.62f; wy += 0.012f)
+        {
+            glBegin(GL_QUADS);
+            glVertex2f(wx, wy);
+            glVertex2f(wx+0.008f, wy);
+            glVertex2f(wx+0.008f, wy+0.008f);
+            glVertex2f(wx, wy+0.008f);
+            glEnd();
+        }
+    }
+}
+
 
 void drawText(const char* text, float x, float y, float r, float g, float b)
 {
@@ -3845,198 +3926,60 @@ void drawText(const char* text, float x, float y, float r, float g, float b)
 
 void drawSchool()
 {
-    glLineWidth(1.0f);
-
-    float bodyFront[] = {1.0f, 0.65f, 0.35f};
-    float bodySide[]  = {0.85f, 0.50f, 0.20f};
-    float roofColor[] = {0.25f, 0.30f, 0.35f};
+    float bodyOrange[] = {1.0f, 0.65f, 0.35f};
+    float roofGrey[] = {0.25f, 0.30f, 0.35f};
+    float bannerWhite[] = {0.95f, 0.95f, 0.95f};
+    float glassBlue[] = {0.60f, 0.85f, 0.95f};
     float doorBrown[] = {0.45f, 0.25f, 0.15f};
-
-    float dx = 0.03f;
-    float dy = 0.03f;
-
-    // 1. FRONT FACES
-    glColor3fv(bodyFront);
-    // Left Wing
+    glColor3fv(bodyOrange);
     glBegin(GL_QUADS);
     glVertex2f(0.38f, 0.00f);
     glVertex2f(0.47f, 0.00f);
     glVertex2f(0.47f, 0.28f);
     glVertex2f(0.38f, 0.28f);
-    glEnd();
-
-    // Left Wing Roof
-    glBegin(GL_QUADS);
-    glVertex2f(0.38f, 0.28f);
-    glVertex2f(0.47f, 0.28f);
-    glVertex2f(0.47f + dx, 0.28f + dy);
-    glVertex2f(0.38f + dx, 0.28f + dy);
-    glEnd();
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.38f, 0.28f);
-    glVertex2f(0.47f, 0.28f);
-    glVertex2f(0.47f + dx, 0.28f + dy);
-    glVertex2f(0.38f + dx, 0.28f + dy);
-    glEnd();
-
-    glColor3fv(bodyFront);
-    // Center Tower
-    glBegin(GL_QUADS);
+    glVertex2f(0.63f, 0.00f);
+    glVertex2f(0.72f, 0.00f);
+    glVertex2f(0.72f, 0.28f);
+    glVertex2f(0.63f, 0.28f);
     glVertex2f(0.47f, 0.00f);
     glVertex2f(0.63f, 0.00f);
     glVertex2f(0.63f, 0.33f);
     glVertex2f(0.47f, 0.33f);
     glEnd();
-
-
-    // Right Wing
+    glColor3fv(roofGrey);
     glBegin(GL_QUADS);
-    glVertex2f(0.63f, 0.00f);
-    glVertex2f(0.72f, 0.00f);
-    glVertex2f(0.72f, 0.28f);
-    glVertex2f(0.63f, 0.28f);
-    glEnd();
-
-    // Front Outlines
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.38f, 0.00f);
-    glVertex2f(0.47f, 0.00f);
+    glVertex2f(0.37f, 0.28f);
     glVertex2f(0.47f, 0.28f);
-    glVertex2f(0.38f, 0.28f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.47f, 0.00f);
-    glVertex2f(0.63f, 0.00f);
-    glVertex2f(0.63f, 0.33f);
-    glVertex2f(0.47f, 0.33f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.63f, 0.00f);
-    glVertex2f(0.72f, 0.00f);
-    glVertex2f(0.72f, 0.28f);
+    glVertex2f(0.47f, 0.31f);
+    glVertex2f(0.37f, 0.31f);
     glVertex2f(0.63f, 0.28f);
+    glVertex2f(0.73f, 0.28f);
+    glVertex2f(0.73f, 0.31f);
+    glVertex2f(0.63f, 0.31f);
     glEnd();
-
-
-    // 2.ROOFS
-    glColor3fv(roofColor);
-
-    // Center Tower Roof
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.46f, 0.33f);
+    glVertex2f(0.64f, 0.33f);
+    glVertex2f(0.55f, 0.43f);
+    glEnd();
+    glColor3fv(bannerWhite);
     glBegin(GL_QUADS);
-    glVertex2f(0.47f, 0.33f);
-    glVertex2f(0.63f, 0.33f);
-    glVertex2f(0.63f + dx, 0.33f + dy);
-    glVertex2f(0.47f + dx, 0.33f + dy);
+    glVertex2f(0.48f, 0.27f);
+    glVertex2f(0.62f, 0.27f);
+    glVertex2f(0.62f, 0.32f);
+    glVertex2f(0.48f, 0.32f);
     glEnd();
-
-    // Right Wing Roof
-    glBegin(GL_QUADS);
-    glVertex2f(0.63f, 0.28f);
-    glVertex2f(0.72f, 0.28f);
-    glVertex2f(0.72f + dx, 0.28f + dy);
-    glVertex2f(0.63f + dx, 0.28f + dy);
+    float cx = 0.55f, cy = 0.37f, r = 0.028f;
+    glBegin(GL_POLYGON);
+    for(int i=0; i<360; i+=15)
+        glVertex2f(cx + r*cos(i*3.1415/180), cy + r*sin(i*3.1415/180));
     glEnd();
-
-    // Roof Outlines
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.47f, 0.33f);
-    glVertex2f(0.63f, 0.33f);
-    glVertex2f(0.63f + dx, 0.33f + dy);
-    glVertex2f(0.47f + dx, 0.33f + dy);
+    glColor3fv(roofGrey);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.50f, 0.13f);
+    glVertex2f(0.60f, 0.13f);
+    glVertex2f(0.55f, 0.18f);
     glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.63f, 0.28f);
-    glVertex2f(0.72f, 0.28f);
-    glVertex2f(0.72f + dx, 0.28f + dy);
-    glVertex2f(0.63f + dx, 0.28f + dy);
-    glEnd();
-
-
-    // 3. EXPOSED RIGHT SIDES
-    glColor3fv(bodySide);
-
-    // Center Tower
-    glBegin(GL_QUADS);
-    glVertex2f(0.63f, 0.28f);
-    glVertex2f(0.63f + dx, 0.28f + dy);
-    glVertex2f(0.63f + dx, 0.33f + dy);
-    glVertex2f(0.63f, 0.33f);
-    glEnd();
-
-    // Right Wing
-    glBegin(GL_QUADS);
-    glVertex2f(0.72f, 0.00f);
-    glVertex2f(0.72f + dx, 0.00f + dy);
-    glVertex2f(0.72f + dx, 0.28f + dy);
-    glVertex2f(0.72f, 0.28f);
-    glEnd();
-
-    // Side Outlines
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.63f, 0.28f);
-    glVertex2f(0.63f + dx, 0.28f + dy);
-    glVertex2f(0.63f + dx, 0.33f + dy);
-    glVertex2f(0.63f, 0.33f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.72f, 0.00f);
-    glVertex2f(0.72f + dx, 0.00f + dy);
-    glVertex2f(0.72f + dx, 0.28f + dy);
-    glVertex2f(0.72f, 0.28f);
-    glEnd();
-
-
-    // 4.WINDOWS & DOOR
-
-    // Wing Windows Loop
-    for(float yPos = 0.06f; yPos <= 0.18f; yPos += 0.10f)
-    {
-        float winX[4] = {0.39f, 0.43f, 0.65f, 0.69f};
-        for (int i = 0; i < 4; i++)
-        {
-            setWindowColor(nightFactor);
-            glBegin(GL_QUADS);
-            glVertex2f(winX[i], yPos);
-            glVertex2f(winX[i] + 0.03f, yPos);
-            glVertex2f(winX[i] + 0.03f, yPos + 0.06f);
-            glVertex2f(winX[i], yPos + 0.06f);
-            glEnd();
-
-            glColor3f(0.0f, 0.0f, 0.0f);
-            glBegin(GL_LINE_LOOP);
-            glVertex2f(winX[i], yPos);
-            glVertex2f(winX[i] + 0.03f, yPos);
-            glVertex2f(winX[i] + 0.03f, yPos + 0.06f);
-            glVertex2f(winX[i], yPos + 0.06f);
-            glEnd();
-        }
-    }
-
-    // Top Center Windows
-    float cWinX[3] = {0.49f, 0.535f, 0.58f};
-    for (int i = 0; i < 3; i++)
-    {
-        setWindowColor(nightFactor);
-        glBegin(GL_QUADS);
-        glVertex2f(cWinX[i], 0.20f);
-        glVertex2f(cWinX[i] + 0.03f, 0.20f);
-        glVertex2f(cWinX[i] + 0.03f, 0.25f);
-        glVertex2f(cWinX[i], 0.25f);
-        glEnd();
-
-        glColor3f(0.0f, 0.0f, 0.0f);
-        glBegin(GL_LINE_LOOP);
-        glVertex2f(cWinX[i], 0.20f);
-        glVertex2f(cWinX[i] + 0.03f, 0.20f);
-        glVertex2f(cWinX[i] + 0.03f, 0.25f);
-        glVertex2f(cWinX[i], 0.25f);
-        glEnd();
-    }
-
-    // Front Door
     glColor3fv(doorBrown);
     glBegin(GL_QUADS);
     glVertex2f(0.52f, 0.02f);
@@ -4044,14 +3987,43 @@ void drawSchool()
     glVertex2f(0.58f, 0.13f);
     glVertex2f(0.52f, 0.13f);
     glEnd();
+    setWindowColor(nightFactor);
+    glBegin(GL_QUADS);
+    glVertex2f(0.49f, 0.20f);
+    glVertex2f(0.52f, 0.20f);
+    glVertex2f(0.52f, 0.25f);
+    glVertex2f(0.49f, 0.25f);
+    glVertex2f(0.535f, 0.20f);
+    glVertex2f(0.565f, 0.20f);
+    glVertex2f(0.565f, 0.25f);
+    glVertex2f(0.535f, 0.25f);
+    glVertex2f(0.58f, 0.20f);
+    glVertex2f(0.61f, 0.20f);
+    glVertex2f(0.61f, 0.25f);
+    glVertex2f(0.58f, 0.25f);
 
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.52f, 0.02f);
-    glVertex2f(0.58f, 0.02f);
-    glVertex2f(0.58f, 0.13f);
-    glVertex2f(0.52f, 0.13f);
+    for(float xPos = 0.39f; xPos <= 0.43f; xPos += 0.04f)
+    {
+        for(float yPos = 0.06f; yPos <= 0.18f; yPos += 0.10f)
+        {
+            glVertex2f(xPos, yPos);
+            glVertex2f(xPos+0.03f, yPos);
+            glVertex2f(xPos+0.03f, yPos+0.06f);
+            glVertex2f(xPos, yPos+0.06f);
+        }
+    }
+    for(float xPos = 0.65f; xPos <= 0.69f; xPos += 0.04f)
+    {
+        for(float yPos = 0.06f; yPos <= 0.18f; yPos += 0.10f)
+        {
+            glVertex2f(xPos, yPos);
+            glVertex2f(xPos+0.03f, yPos);
+            glVertex2f(xPos+0.03f, yPos+0.06f);
+            glVertex2f(xPos, yPos+0.06f);
+        }
+    }
     glEnd();
+    drawText("SCHOOL", 0.515f, 0.285f, 0.1f, 0.1f, 0.1f);
 }
 
 
@@ -4059,230 +4031,103 @@ void drawHospital()
 {
     float wingGrey[] = {0.88f, 0.94f, 0.96f};
     float centerGrey[] = {0.62f, 0.74f, 0.80f};
+    float glassBlue[] = {0.0f, 0.72f, 0.92f};
     float signBlue[] = {0.0f, 0.30f, 0.70f};
     float hospitalRed[] = {0.95f, 0.15f, 0.10f};
     float pureWhite[] = {1.0f, 1.0f, 1.0f};
-    float offset = 0.02f;
-
-    //SOLID FACES
-    // 1. Sides
-    glColor3f(0.4f, 0.4f, 0.45f);
-    glBegin(GL_QUADS);
-    // Base foundation side
-    glVertex2f(1.00f, -0.22f);
-    glVertex2f(1.00f + offset, -0.22f + offset);
-    glVertex2f(1.00f + offset, -0.18f + offset);
-    glVertex2f(1.00f, -0.18f);
-    // Center wing side
-    glVertex2f(0.96f, 0.15f);
-    glVertex2f(0.96f + offset, 0.15f + offset);
-    glVertex2f(0.96f + offset, 0.18f + offset);
-    glVertex2f(0.96f, 0.18f);
-    // Right wing side
-    glVertex2f(1.00f, -0.18f);
-    glVertex2f(1.00f + offset, -0.18f + offset);
-    glVertex2f(1.00f + offset, 0.15f + offset);
-    glVertex2f(1.00f, 0.15f);
-    glEnd();
-
-    // 2. Roofs
-    glColor3f(0.7f, 0.7f, 0.75f);
-    glBegin(GL_QUADS);
-    glVertex2f(0.73f, 0.15f);
-    glVertex2f(0.84f, 0.15f);
-    glVertex2f(0.84f + offset, 0.15f + offset);
-    glVertex2f(0.73f + offset, 0.15f + offset);
-    glVertex2f(0.84f, 0.18f);
-    glVertex2f(0.96f, 0.18f);
-    glVertex2f(0.96f + offset, 0.18f + offset);
-    glVertex2f(0.84f + offset, 0.18f + offset);
-    glVertex2f(0.96f, 0.15f);
-    glVertex2f(1.00f, 0.15f);
-    glVertex2f(1.00f + offset, 0.15f + offset);
-    glVertex2f(0.96f + offset, 0.15f + offset);
-    glEnd();
-
-    // 3. Front Faces
-    glColor3f(0.5f, 0.5f, 0.55f); // Base
+    glColor3f(0.5f, 0.5f, 0.55f);
     glBegin(GL_QUADS);
     glVertex2f(0.70f, -0.22f);
     glVertex2f(1.00f, -0.22f);
     glVertex2f(1.00f, -0.18f);
     glVertex2f(0.70f, -0.18f);
     glEnd();
-
-    glColor3fv(wingGrey); // Wings
+    glColor3fv(wingGrey);
     glBegin(GL_QUADS);
     glVertex2f(0.73f, -0.18f);
     glVertex2f(0.84f, -0.18f);
-    glVertex2f(0.84f, 0.15f);
-    glVertex2f(0.73f, 0.15f);
+    glVertex2f(0.84f,  0.15f);
+    glVertex2f(0.73f,  0.15f);
     glVertex2f(0.96f, -0.18f);
     glVertex2f(1.00f, -0.18f);
-    glVertex2f(1.00f, 0.15f);
-    glVertex2f(0.96f, 0.15f);
+    glVertex2f(1.00f,  0.15f);
+    glVertex2f(0.96f,  0.15f);
     glEnd();
-
-    glColor3fv(centerGrey); // Center
+    glColor3fv(centerGrey);
     glBegin(GL_QUADS);
     glVertex2f(0.84f, -0.18f);
     glVertex2f(0.96f, -0.18f);
-    glVertex2f(0.96f, 0.18f);
-    glVertex2f(0.84f, 0.18f);
+    glVertex2f(0.96f,  0.18f);
+    glVertex2f(0.84f,  0.18f);
     glEnd();
-
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glLineWidth(1.0f);
-
-    // Outline Front Faces (Closed loops)
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.70f, -0.22f);
-    glVertex2f(1.00f, -0.22f);
-    glVertex2f(1.00f, -0.18f);
-    glVertex2f(0.70f, -0.18f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.73f, -0.18f);
-    glVertex2f(0.84f, -0.18f);
-    glVertex2f(0.84f, 0.15f);
-    glVertex2f(0.73f, 0.15f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.84f, -0.18f);
-    glVertex2f(0.96f, -0.18f);
-    glVertex2f(0.96f, 0.18f);
-    glVertex2f(0.84f, 0.18f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.96f, -0.18f);
-    glVertex2f(1.00f, -0.18f);
-    glVertex2f(1.00f, 0.15f);
-    glVertex2f(0.96f, 0.15f);
-    glEnd();
-
-    // Outline Sides (Depth walls)
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(1.00f, -0.22f);
-    glVertex2f(1.00f + offset, -0.22f + offset);
-    glVertex2f(1.00f + offset, 0.15f + offset);
-    glVertex2f(1.00f, 0.15f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.96f, 0.15f);
-    glVertex2f(0.96f + offset, 0.15f + offset);
-    glVertex2f(0.96f + offset, 0.18f + offset);
-    glVertex2f(0.96f, 0.18f);
-    glEnd();
-
-    // Outline Roofs (Top faces)
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.73f, 0.15f);
-    glVertex2f(0.84f, 0.15f);
-    glVertex2f(0.82f + offset, 0.15f + offset);
-    glVertex2f(0.73f + offset, 0.15f + offset);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.84f, 0.18f);
-    glVertex2f(0.96f, 0.18f);
-    glVertex2f(0.96f + offset, 0.18f + offset);
-    glVertex2f(0.84f + offset, 0.18f + offset);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.96f, 0.15f);
-    glVertex2f(1.00f, 0.15f);
-    glVertex2f(1.00f + offset, 0.15f + offset);
-    glVertex2f(0.96f + offset, 0.15f + offset);
-    glEnd();
-
-    // Blue Sign Box & Outline
     glColor3fv(signBlue);
     glBegin(GL_QUADS);
     glVertex2f(0.85f, -0.05f);
     glVertex2f(0.95f, -0.05f);
-    glVertex2f(0.95f, 0.01f);
-    glVertex2f(0.85f, 0.01f);
+    glVertex2f(0.95f,  0.01f);
+    glVertex2f(0.85f,  0.01f);
     glEnd();
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.85f, -0.05f);
-    glVertex2f(0.95f, -0.05f);
-    glVertex2f(0.95f, 0.01f);
-    glVertex2f(0.85f, 0.01f);
-    glEnd();
-
-    // White Cross Background & Outline
     glColor3fv(pureWhite);
     glBegin(GL_QUADS);
     glVertex2f(0.865f, -0.18f);
+    glVertex2f(0.875f, -0.18f);
+    glVertex2f(0.875f, -0.08f);
+    glVertex2f(0.865f, -0.08f);
+    glVertex2f(0.930f, -0.18f);
     glVertex2f(0.940f, -0.18f);
+    glVertex2f(0.940f, -0.08f);
+    glVertex2f(0.930f, -0.08f);
+    glVertex2f(0.865f, -0.08f);
+    glVertex2f(0.940f, -0.08f);
     glVertex2f(0.940f, -0.06f);
     glVertex2f(0.865f, -0.06f);
     glEnd();
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.865f, -0.18f);
-    glVertex2f(0.940f, -0.18f);
-    glVertex2f(0.940f, -0.06f);
-    glVertex2f(0.865f, -0.06f);
+    setWindowColor(nightFactor);
+    glBegin(GL_QUADS);
+    glVertex2f(0.88f, -0.18f);
+    glVertex2f(0.92f, -0.18f);
+    glVertex2f(0.92f, -0.08f);
+    glVertex2f(0.88f, -0.08f);
     glEnd();
-
-    // Window
+    setWindowColor(nightFactor);
+    glBegin(GL_QUADS);
     for(float rowY = -0.15f; rowY <= 0.05f; rowY += 0.08f)
     {
-        float winX[] = {0.74f, 0.78f, 0.81f, 0.97f};
-        for(int i=0; i<4; i++)
+        glVertex2f(0.74f, rowY);
+        glVertex2f(0.76f, rowY);
+        glVertex2f(0.76f, rowY+0.04f);
+        glVertex2f(0.74f, rowY+0.04f);
+        glVertex2f(0.78f, rowY);
+        glVertex2f(0.80f, rowY);
+        glVertex2f(0.80f, rowY+0.04f);
+        glVertex2f(0.78f, rowY+0.04f);
+        glVertex2f(0.81f, rowY);
+        glVertex2f(0.83f, rowY);
+        glVertex2f(0.83f, rowY+0.04f);
+        glVertex2f(0.81f, rowY+0.04f);
+        if(rowY > 0.02f)
         {
-            setWindowColor(nightFactor);
-            glBegin(GL_QUADS);
-            glVertex2f(winX[i], rowY);
-            glVertex2f(winX[i]+0.02f, rowY);
-            glVertex2f(winX[i]+0.02f, rowY+0.04f);
-            glVertex2f(winX[i], rowY+0.04f);
-            glEnd();
-            glColor3f(0.0f, 0.0f, 0.0f);
-            glBegin(GL_LINE_LOOP);
-            glVertex2f(winX[i], rowY);
-            glVertex2f(winX[i]+0.02f, rowY);
-            glVertex2f(winX[i]+0.02f, rowY+0.04f);
-            glVertex2f(winX[i], rowY+0.04f);
-            glEnd();
+            glVertex2f(0.86f, rowY);
+            glVertex2f(0.90f, rowY);
+            glVertex2f(0.90f, rowY+0.05f);
+            glVertex2f(0.86f, rowY+0.05f);
+            glVertex2f(0.91f, rowY);
+            glVertex2f(0.95f, rowY);
+            glVertex2f(0.95f, rowY+0.05f);
+            glVertex2f(0.91f, rowY+0.05f);
         }
-        if(rowY > 0.02f)   // Center tower windows
-        {
-            float towerWinX[] = {0.86f, 0.91f};
-            for(int j=0; j<2; j++)
-            {
-                setWindowColor(nightFactor);
-                glBegin(GL_QUADS);
-                glVertex2f(towerWinX[j], rowY);
-                glVertex2f(towerWinX[j]+0.04f, rowY);
-                glVertex2f(towerWinX[j]+0.04f, rowY+0.05f);
-                glVertex2f(towerWinX[j], rowY+0.05f);
-                glEnd();
-                glColor3f(0.0f, 0.0f, 0.0f);
-                glBegin(GL_LINE_LOOP);
-                glVertex2f(towerWinX[j], rowY);
-                glVertex2f(towerWinX[j]+0.04f, rowY);
-                glVertex2f(towerWinX[j]+0.04f, rowY+0.05f);
-                glVertex2f(towerWinX[j], rowY+0.05f);
-                glEnd();
-            }
-        }
+        glVertex2f(0.97f, rowY);
+        glVertex2f(0.99f, rowY);
+        glVertex2f(0.99f, rowY+0.04f);
+        glVertex2f(0.97f, rowY+0.04f);
     }
-
-    // Red Cross Circle & Shape
+    glEnd();
     float cxH = 0.90f, cyH = 0.07f, rH = 0.03f;
     glColor3fv(hospitalRed);
     glBegin(GL_POLYGON);
     for(int i=0; i<360; i+=10)
         glVertex2f(cxH + rH*cos(i*3.14159/180), cyH + rH*sin(i*3.14159/180));
     glEnd();
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glBegin(GL_LINE_LOOP);
-    for(int i=0; i<360; i+=10)
-        glVertex2f(cxH + rH*cos(i*3.14159/180), cyH + rH*sin(i*3.14159/180));
-    glEnd();
-
     glColor3fv(pureWhite);
     glBegin(GL_QUADS);
     glVertex2f(cxH-0.005f, cyH-0.02f);
@@ -4294,7 +4139,6 @@ void drawHospital()
     glVertex2f(cxH+0.02f, cyH+0.005f);
     glVertex2f(cxH-0.02f, cyH+0.005f);
     glEnd();
-
     drawText("HOSPITAL", 0.862f, -0.03f, 1.0f, 1.0f, 1.0f);
 }
 
@@ -4304,87 +4148,27 @@ void drawBuilding()
     float startX = 0.20f, bWidth = 0.15f, startY = 0.215f;
     float floorH = 0.22f;
     int totalFloors = 3;
-    float bHeight = floorH * totalFloors;
     float wallBrown[] = {0.50f, 0.40f, 0.35f};
     float trimGold[] = {0.85f, 0.75f, 0.50f};
-
-    float offset = 0.02f;
-
-    //1. SIDE WALL
     if (nightFactor > 0.5f)
-        glColor3f(0.12f, 0.12f, 0.2f);
-    else
-        glColor3f(0.35f, 0.28f, 0.25f);
-    glBegin(GL_QUADS);
-    glVertex2f(startX + bWidth, startY);
-    glVertex2f(startX + bWidth + offset, startY + offset);
-    glVertex2f(startX + bWidth + offset, startY + bHeight + offset);
-    glVertex2f(startX + bWidth, startY + bHeight);
-    glEnd();
-
-    //2.ROOF
-    if (nightFactor > 0.5f)
-        glColor3f(0.08f, 0.08f, 0.15f);
-    else
-        glColor3f(0.25f, 0.20f, 0.18f);
-    glBegin(GL_QUADS);
-    glVertex2f(startX, startY + bHeight);
-    glVertex2f(startX + bWidth, startY + bHeight);
-    glVertex2f(startX + bWidth + offset, startY + bHeight + offset);
-    glVertex2f(startX + offset, startY + bHeight + offset);
-    glEnd();
-
-    //3.FRONT WALL
-    if (nightFactor > 0.5f)
-        glColor3f(0.2f, 0.2f, 0.3f);
+        glColor3f(0.2f, 0.2f, 0.3f);   // same as Twin Towers
     else
         glColor3fv(wallBrown);
     glBegin(GL_QUADS);
     glVertex2f(startX, startY);
     glVertex2f(startX + bWidth, startY);
-    glVertex2f(startX + bWidth, startY + bHeight);
-    glVertex2f(startX, startY + bHeight);
+    glVertex2f(startX + bWidth, startY + (floorH * totalFloors));
+    glVertex2f(startX, startY + (floorH * totalFloors));
     glEnd();
-
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glLineWidth(1);
-    // Front Face Outline
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(startX, startY);
-    glVertex2f(startX + bWidth, startY);
-    glVertex2f(startX + bWidth, startY + bHeight);
-    glVertex2f(startX, startY + bHeight);
-    glEnd();
-    // Side Wall Outline
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(startX + bWidth, startY);
-    glVertex2f(startX + bWidth + offset, startY + offset);
-    glVertex2f(startX + bWidth + offset, startY + bHeight + offset);
-    glVertex2f(startX + bWidth, startY + bHeight);
-    glEnd();
-    // Top Roof Outline
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(startX, startY + bHeight);
-    glVertex2f(startX + bWidth, startY + bHeight);
-    glVertex2f(startX + bWidth + offset, startY + bHeight + offset);
-    glVertex2f(startX + offset, startY + bHeight + offset);
-    glEnd();
-
-    //5. TRIMS & WINDOWS
     for (int i = 0; i < totalFloors; i++)
     {
         float currentY = startY + (i * floorH);
-
         glColor3fv(trimGold);
         glLineWidth(2);
         glBegin(GL_LINES);
         glVertex2f(startX, currentY);
         glVertex2f(startX + bWidth, currentY);
-        glVertex2f(startX + bWidth, currentY);
-        glVertex2f(startX + bWidth + offset, currentY + offset);
         glEnd();
-
-        // Windows (Front Face)
         setWindowColor(nightFactor);
         glBegin(GL_QUADS);
         for (float winX = startX + 0.02f; winX < startX + bWidth - 0.02f; winX += 0.045f)
@@ -4395,21 +4179,6 @@ void drawBuilding()
             glVertex2f(winX, currentY + 0.18f);
         }
         glEnd();
-
-        // Black Window Outlines
-        glColor3f(0.0f, 0.0f, 0.0f);
-        glLineWidth(1);
-        for (float winX = startX + 0.02f; winX < startX + bWidth - 0.02f; winX += 0.045f)
-        {
-            glBegin(GL_LINE_LOOP);
-            glVertex2f(winX, currentY + 0.06f);
-            glVertex2f(winX + 0.03f, currentY + 0.06f);
-            glVertex2f(winX + 0.03f, currentY + 0.18f);
-            glVertex2f(winX, currentY + 0.18f);
-            glEnd();
-        }
-
-        // Horizontal window
         glColor3fv(trimGold);
         glBegin(GL_LINES);
         glVertex2f(startX + 0.01f, currentY + 0.06f);
@@ -4419,39 +4188,6 @@ void drawBuilding()
 }
 void drawTwinTowers()
 {
-    float offset = 0.015f;
-
-    //1.SIDE WALLS
-    glColor3f(0.12f, 0.12f, 0.2f);
-    glBegin(GL_QUADS);
-    // Tower 1 Side
-    glVertex2f(0.91f, 0.25f);
-    glVertex2f(0.91f + offset, 0.25f + offset);
-    glVertex2f(0.91f + offset, 0.81f + offset);
-    glVertex2f(0.91f, 0.81f);
-    // Tower 2 Side
-    glVertex2f(0.99f, 0.25f);
-    glVertex2f(0.99f + offset, 0.25f + offset);
-    glVertex2f(0.99f + offset, 0.81f + offset);
-    glVertex2f(0.99f, 0.81f);
-    glEnd();
-
-    //2.ROOFS
-    glColor3f(0.08f, 0.08f, 0.15f);
-    glBegin(GL_QUADS);
-    // Tower 1 Roof
-    glVertex2f(0.85f, 0.81f);
-    glVertex2f(0.91f, 0.81f);
-    glVertex2f(0.91f + offset, 0.81f + offset);
-    glVertex2f(0.85f + offset, 0.81f + offset);
-    // Tower 2 Roof
-    glVertex2f(0.93f, 0.81f);
-    glVertex2f(0.99f, 0.81f);
-    glVertex2f(0.99f + offset, 0.81f + offset);
-    glVertex2f(0.93f + offset, 0.81f + offset);
-    glEnd();
-
-    //3.FRONT FACES
     glColor3f(0.2f, 0.2f, 0.3f);
     glBegin(GL_QUADS);
     glVertex2f(0.85f, 0.25f);
@@ -4463,49 +4199,6 @@ void drawTwinTowers()
     glVertex2f(0.99f, 0.81f);
     glVertex2f(0.93f, 0.81f);
     glEnd();
-
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glLineWidth(1.0f);
-    // Tower 1 Outline
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.85f, 0.25f);
-    glVertex2f(0.91f, 0.25f);
-    glVertex2f(0.91f, 0.81f);
-    glVertex2f(0.85f, 0.81f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.91f, 0.25f);
-    glVertex2f(0.91f + offset, 0.25f + offset);
-    glVertex2f(0.91f + offset, 0.81f + offset);
-    glVertex2f(0.91f, 0.81f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.85f, 0.81f);
-    glVertex2f(0.91f, 0.81f);
-    glVertex2f(0.91f + offset, 0.81f + offset);
-    glVertex2f(0.85f + offset, 0.81f + offset);
-    glEnd();
-    // Tower 2 Outline
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.93f, 0.25f);
-    glVertex2f(0.99f, 0.25f);
-    glVertex2f(0.99f, 0.81f);
-    glVertex2f(0.93f, 0.81f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.99f, 0.25f);
-    glVertex2f(0.99f + offset, 0.25f + offset);
-    glVertex2f(0.99f + offset, 0.81f + offset);
-    glVertex2f(0.99f, 0.81f);
-    glEnd();
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(0.93f, 0.81f);
-    glVertex2f(0.99f, 0.81f);
-    glVertex2f(0.99f + offset, 0.81f + offset);
-    glVertex2f(0.93f + offset, 0.81f + offset);
-    glEnd();
-
-    //5.WINDOWS
     setWindowColor(nightFactor);
     glBegin(GL_QUADS);
     for(float h = 0.30f; h < 0.75f; h += 0.12f)
@@ -4520,14 +4213,12 @@ void drawTwinTowers()
         glVertex2f(0.94f, h + 0.08f);
     }
     glEnd();
-
-    //6.ANTENNAS
     glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
-    glVertex2f(0.88f + (offset/2), 0.81f + (offset/2));
-    glVertex2f(0.88f + (offset/2), 0.91f + (offset/2));
-    glVertex2f(0.96f + (offset/2), 0.81f + (offset/2));
-    glVertex2f(0.96f + (offset/2), 0.91f + (offset/2));
+    glVertex2f(0.88f, 0.81f);
+    glVertex2f(0.88f, 0.91f);
+    glVertex2f(0.96f, 0.81f);
+    glVertex2f(0.96f, 0.91f);
     glEnd();
 }
 
@@ -4670,6 +4361,7 @@ void display(void)
     drawHospital();
     drawTwinTowers();
     draw_rightView();
+    drawNeighborApartment();
 
 //////////////////////////
     water();

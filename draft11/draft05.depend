@@ -242,26 +242,8 @@
 	<GL/glut.h>
 	<math.h>
 
-1777644644 source:c:\users\ornob\desktop\glut-urban-traffic-simulation\draft12\main.cpp
+1777641972 source:c:\users\ornob\desktop\glut-urban-traffic-simulation\draft11\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<math.h>
-	<stdlib.h>
-
-1777651489 source:c:\users\ornob\desktop\glut-urban-traffic-simulation\draft12 - copy\main.cpp
-	<windows.h>
-	<GL/glut.h>
-	<math.h>
-	<stdlib.h>
-
-1777746824 source:c:\users\ornob\desktop\glut-urban-traffic-simulation\draft13\main.cpp
-	<windows.h>
-	<GL/glut.h>
-	<time.h>
-	<math.h>
-	<stdlib.h>
-
-1341006776 c:\program files (x86)\codeblocks\mingw\include\time.h
-	<_mingw.h>
-	<stddef.h>
 

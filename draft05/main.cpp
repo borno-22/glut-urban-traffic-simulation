@@ -3231,7 +3231,7 @@ void drawSun()
     float g = 0.9f * (1.0f - nightFactor) + 0.05f * nightFactor;
     float b = 0.5f * (1.0f - nightFactor) + 0.3f * nightFactor;
     glColor3f(r, g, b);
-    drawCircle(0.0f, 0.55f - nightFactor * 0.3f, size);
+    drawCircle(0.0f, 0.9f - nightFactor * 0.3f, size);
 }
 void drawMoon()
 {
